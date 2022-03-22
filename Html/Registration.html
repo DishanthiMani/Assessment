@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="../Script/script.js"></script>
+    <title>Registration Page</title>
+</head>
+<body>
+    <div class="register">
+        <form id="registration">
+            <div class="head">
+                <h1> Registration Form</h1>
+            </div>
+            <div class="container1">
+                <label for="name">Name</label>
+            </div>
+            <div class="input1">
+                <input type="text" name="name" id="name" onchange="testname()"></br>
+            </div>
+            <div class="container1">
+                <label for="dob"> DOB </label>
+            </div>
+            <div class="input1">
+                <input type="date" id="dob" name="start" placeholder="dd-mm-yyyy" value="" min="1997-01-01" max="2030-12-31"> </br>
+            </div>
+            <div class="container1">
+                <label for="mail"> Email </label>
+            </div>
+            <div class="input1">
+                <input type="email" name="mail" id="email" required> </br>
+            </div>
+            <div class="container1">
+                <label for="contact"> Mobileno </label>
+            </div>
+            <div class="input1">
+                <input type="number" name="contact" id="mobile" size="10" required> </br>
+            </div>
+            <div class="container1">
+                <label for="password"> Password </label>
+            </div>
+            <div class="input1">
+                <input type="password" name="password" id="pword" required> 
+                <i class="fa fa-eye-slash" id="toggle" onclick="toggle()"></i>
+            </div>
+            <div class="container1">
+                <label for="confirmation"> Confirm Password</label>
+            </div>
+            <div class="input1">
+                <input type="password" name="confirmation" id="confirmpass" required>
+                <i class="fa fa-eye-slash" id="confirmtoggle" onclick="confirmtoggle()"></i>
+            </div>
+            <div class="container1">
+                <label for="Maritalstatus" id="status"> Maritalstatus </label>
+             </div>
+            <div class = "input1">
+                <input class = "input" type ="radio" id="Single" name="Maritalstatus" value="Single"> Single</br>
+                <input class = "input" type="radio" id="Married" name="Maritalstatus" value="Married"> Married</br></br>
+             </div>
+                <label>
+                <input type="checkbox"  id="check" name="remember" onclick="booking()"> Given information is true 
+                </label> </br>
+             <div class="save">
+                 <label for="save"></label>
+                 <input type="button" name="save" class="save" disabled="true" id="savedetails" value="Save">
+             </div>
+        </form>
+    </div>
+</body>
+</html>
