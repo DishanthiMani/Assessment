@@ -36,7 +36,9 @@ if(!document.forms[0].checkValidity()){
 function regexp(){
     function testname(){
         var nametest = name.match(/^[A-z]{,15}/gi);
-        if(nametest= name)
+        if(nametest= name){
+            alert("Please enter the field.");
+        }
 
     }
 
