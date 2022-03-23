@@ -7,19 +7,21 @@
     <link rel="stylesheet" href="../styles/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="../Script/script.js"></script>
-    <title>Registration Page</title>
+    <title>Signup Page</title>
 </head>
 <body>
     <div class="register">
+        <div class="signupbox">
         <form id="registration">
             <div class="head">
-                <h1> Registration Form</h1>
+                <h1> Sign Up </h1>
             </div>
             <div class="container1">
                 <label for="name">Name</label>
             </div>
             <div class="input1">
-                <input type="text" name="name" id="name" onchange="testname()"></br>
+                <input type="text" name="name" id="name" required ></br>
+                <span class="errormessage" id="nameerror"> Enter your name </span>
             </div>
             <div class="container1">
                 <label for="dob"> DOB </label>
@@ -31,43 +33,51 @@
                 <label for="mail"> Email </label>
             </div>
             <div class="input1">
-                <input type="email" name="mail" id="email" required> </br>
+                <input type="email" name="mail" id="email"  required> </br>
+                <span class="errormessage" id="emailerror"> Enter valid Email </span>
             </div>
             <div class="container1">
-                <label for="contact"> Mobileno </label>
+                <label for="contact"> Mobile Number </label>
             </div>
             <div class="input1">
-                <input type="number" name="contact" id="mobile" size="10" required> </br>
+                <input type="text" name="contact" id="mobile"  required> </br>
+                <span class="errormessage" id="contacterror"> Enter valid Mobile Number</span>
             </div>
             <div class="container1">
                 <label for="password"> Password </label>
             </div>
             <div class="input1">
-                <input type="password" name="password" id="pword" required> 
+                <input type="password" name="password" id="pword"  required> 
                 <i class="fa fa-eye-slash" id="toggle" onclick="toggle()"></i>
+                <span class="errormessage" id="passworderror"> Password format incorrect </span>
             </div>
             <div class="container1">
                 <label for="confirmation"> Confirm Password</label>
             </div>
             <div class="input1">
-                <input type="password" name="confirmation" id="confirmpass" required>
+                <input type="password" name="confirmation" id="confirmpass"  required>
                 <i class="fa fa-eye-slash" id="confirmtoggle" onclick="confirmtoggle()"></i>
+                <span class="errormessage" id="confirmerror"> Failed to match with password </span>
             </div>
+            
             <div class="container1">
-                <label for="Maritalstatus" id="status"> Maritalstatus </label>
+                <label for="gender" id="status"> Gender </label>
              </div>
-            <div class = "input1">
-                <input class = "input" type ="radio" id="Single" name="Maritalstatus" value="Single"> Single</br>
-                <input class = "input" type="radio" id="Married" name="Maritalstatus" value="Married"> Married</br></br>
+            <div class = "radioinput">
+                    <input class = "input" type ="radio" id="male" name="gender" value="Male">
+                <label for="male">Male </label>
+                    <input class = "input" type="radio" id="femlae" name="gender" value="Female">
+                <label for="female"> Female</label></br>
              </div>
+             <div class="save">
                 <label>
                 <input type="checkbox"  id="check" name="remember" onclick="booking()"> Given information is true 
                 </label> </br>
-             <div class="save">
                  <label for="save"></label>
-                 <input type="button" name="save" class="save" disabled="true" id="savedetails" value="Save">
+                 <button type="submit" name="save" class="savebutton" disabled="true" id="savedetails" onclick="regexp()" value="Save"> submit </button>
              </div>
         </form>
+     </div>
     </div>
 </body>
 </html>
