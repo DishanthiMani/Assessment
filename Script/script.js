@@ -13,55 +13,89 @@ function myFunction() {
     password.setAttribute('type', type);
     togglePassword.className = togglePassword.className === "fa fa-eye-slash"?"fa fa-eye":"fa fa-eye-slash" ;
   }
-  function confirmtoggle(){
-    var togglecPassword = document.querySelector('#confirmtoggle');
-    var confirmpassword = document.querySelector('#confirmpass');
-    var type = confirmpassword.getAttribute('type') === 'password' ? 'text' : 'password';
-    confirmpassword.setAttribute('type', type);
-    console.log(togglecPassword.className)
-    togglecPassword.className = togglecPassword.className == "fa fa-eye-slash"?"fa fa-eye":"fa fa-eye-slash" ;
-  }
 function validate(){
-/*var name = document.getElementById("name").value;
-var dob = document.getElementById("dob").value;
-var email = document.getElementById("email").value;
-var mobile = document.getElementById("mobile").value;
-var password = document.getElementById("pword").value;
-var confirmpassword = document.getElementById("confirmpass").value;*/
-var status = document.getElementById('male').checked?"male":"female";
-var validation = true;
-if(!document.forms.checkValidity()){
-    validation = false;
+if(document.forms[0].checkValidity()){
+    var url = new URL("http://127.0.0.1:5500/html/index.html");
+    window.location.href = url;
 }
 }
-function regexp(){
-        var nametest = /^[A-z]{,25}$/gi;
-        var name = document.getElementById("name").value;
-        var namevalidate = document.getElementById("nameerror");
-        if(nametest.test(name))
-        {
-            namevalidate.classList.add("errormessage");
-        }else{
-           namevalidate.classList.remove("errormessage");
-            namevalidate.style.color = "red";
-        }
-
-    }
-    var emailtest = /^[a-z0-9\._-]{4,15}@[a-z]{2,6}\.[a-z]{2,4}$/;
-    var email = document.getElementById("email");
-    var emailvalidate = document.getElementById("emailerror");
-    if(emailtest.test(email))
-    {
-        emailvalidate.classList.add("errormessage");
+function nametest(){
+    var nameRegex = /[A-z]{4,25}/;
+    var nameValue = document.getElementById("name").value;
+    var nameSpanId = document.getElementById("nameerror");
+    var nameInputBox = document.getElementById("name");
+    if(nameRegex.test(nameValue)){
+        nameSpanId.classList.add("errormessage");
+        nameInputBox.style.borderColor = "gray";
     }else{
-        emailvalidate.classList.remove("errormessage");
-        emailvalidate.style.color = "red";
+        nameSpanId.classList.remove("errormessage");
+        nameSpanId.style.color = "red";
+        nameInputBox.style.borderColor = "red";
+    }
+}
+function emailtest(){
+    var emailRegex = /^[a-z0-9\._-]{4,15}@[a-z]{2,6}\.[a-z]{2,4}$/;
+    var emailValue = document.getElementById("email").value;
+    var emailSpanId = document.getElementById("emailerror");
+    var emailInputBox = document.getElementById("email");
+    if(emailRegex.test(emailValue)){
+        emailSpanId.classList.add("errormessage");
+        emailInputBox.style.borderColor = "gray";
+    }else{
+        emailSpanId.classList.remove("errormessage");
+        emailSpanId.style.color = "red";
+        emailInputBox.style.borderColor = "red";
+    }
+}
+function contactvalidate(){
+    var mobileRegex = /^[0-9]{10}$/;
+    var mobileValue = document.getElementById("mobile").value;
+    var mobileSpanId = document.getElementById("contacterror");
+    var mobileInputBox = document.getElementById("mobile");
+    if(mobileRegex.test(mobileValue)){
+        mobileSpanId.classList.add("errormessage");
+        mobileInputBox.style.borderColor = "gray";
+    }else{
+        mobileSpanId.classList.remove("errormessage");
+        mobileSpanId.style.color = "red";
+        mobileInputBox.style.borderColor = "red";
+    }
+}
+function passwordvalidate(){
+    var passwordRegex = /(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@$%^&])[a-zA-Z0-9!@$%^&]{8,16}/;
+    var passwordValue = document.getElementById("pword").value;
+    var passwordSpanId = document.getElementById("passworderror");
+    var passwordInputBox = document.getElementById("pword");
+    if(passwordRegex.test(passwordValue)){
+        passwordSpanId.classList.add("errormessage");
+        passwordInputBox.style.borderColor = "gray";
+    }else{
+        passwordSpanId.classList.remove("errormessage");
+        passwordSpanId.style.color = "red";
+        passwordInputBox.style.borderColor = "red";
+    }
+}
+function confirmpassword(){
+    var givenpassword = document.getElementById("pword").value;
+    var confirmpass = document.getElementById("confirmpass").value;
+    var confirmSpanId = document.getElementById("confirmerror");
+    var confirmInputBox = document.getElementById("confirmpass");
+    if(givenpassword==confirmpass){
+        confirmSpanId.classList.add("errormessage");
+        confirmInputBox.style.borderColor = "gray";
+    }else{
+        confirmSpanId.classList.remove("errormessage");
+        confirmSpanId.style.color = "red";
+        confirmInputBox.style.borderColor = "red";
     }
 
-
+}
 function booking(){
 var checkbox = document.getElementById("check");
 var save=document.getElementById("savedetails");
 save.disabled=checkbox.checked?false:true;
-
+}
+function save(){
+   var detailspage = new URL("http://127.0.0.1:5500/Html/Details.html");
+   window.location.href = detailspage;
 }

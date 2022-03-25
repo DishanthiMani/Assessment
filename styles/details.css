@@ -1,0 +1,43 @@
+body{
+    background-color: rgb(238, 238, 208);
+}
+.header{
+    text-align: center;
+}
+.title{
+  text-align: center;
+}
+.menubar{
+    display: inline-block;
+    position: fixed;
+    top: 2px;
+    left: 2px;
+    color: rgb(0, 0, 0);
+    height: 50px;
+    width: 100%;
+    text-align: left;
+    padding-top: 25px;
+    padding-left: 10px;
+}
+
+/*.menubar{
+    display: inline-block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(172, 166, 166, 0.397);
+    height: 100%;
+    width: 200px;
+
+}*/
+.container{
+    width: 80%;
+    margin: 2%;
+    margin-left: 10px;
+}
+.details{
+    padding-left: 0%;
+    width: 80%;
+    margin: 5%;
+    height: 100%;
+}

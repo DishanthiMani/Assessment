@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="../Script/script.js"></script>
+    <script src="../Script/script.js"></script> 
     <link rel="stylesheet" href="../styles/login.css">
     <title>Welcome</title>
 </head>
@@ -20,7 +20,7 @@
                 <label for="uname" class="user"> User Name</label>
             </div>
             <div class="input">
-                <input type="text" name="uname" id="name" size="15"></br>
+                <input type="text" name="uname" id="name" size="15" required></br>
             </div>
         </div>
         <div class="password">
@@ -29,13 +29,13 @@
             </div>
          
             <div class="input">
-                <input type="password" name="password" id="pass" size="10"></br>
+                <input type="password" name="password" id="pass" size="10" required></br>
             </div>
             <input type="checkbox" onclick="myFunction()">Show Password
         </div>
         <div class="submit">
             <label for="submit"></label>
-            <input type="button" onclick="submit()" id="submitbtn" class="sub" value="submit" name="submit"></br>
+            <input type="button"  id="submitbtn" class="sub" value="submit" onclick="save()" name="submit"></br>
         <a href="http://127.0.0.1:5500/Html/Registration.html" class="anchor"> Register here! </a>
         </div>
     </form>

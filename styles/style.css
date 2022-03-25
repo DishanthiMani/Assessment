@@ -47,17 +47,19 @@ body{
     background-color: rgb(210, 210, 210);
     border-style: inset;
     border-radius: 4px;
+    border-color: gray;
 }
+#pword{
+    margin-left: inherit;
+}
+
 .save{
     padding-top: 5px;
 }
 #toggle {
-    margin-left: -40px;
+    margin-left: -35px;
     cursor: pointer;
-}
-#confirmtoggle{
-    margin-left: -40px;
-    cursor: pointer;
+    padding: initial;
 }
 #savedetails{
     margin-right: 50px;
@@ -77,5 +79,13 @@ body{
 }
 .errormessage{
     display: none;
-    
+}
+
+.pasword{
+    position: relative;
+    top: -25px;
+}
+.cpasword{
+    position: relative;
+    top: -25px;
 }
