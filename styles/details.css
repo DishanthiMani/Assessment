@@ -1,125 +1,152 @@
-body{
-    background-color: rgb(142, 197, 185);
+body {
+    background-color: rgb(224, 240, 236);
+    background: url("../details1.jpg");
+    background-size: cover;
+    /* background-position: center; */
+    margin-right: -1px;
+    margin-left: -1px;
 }
-.booking{
-    margin-right: 200px;
+
+.booking {
+    cursor: pointer;
 }
-.header{
+
+.header {
     font-weight: bolder;
     font-style: italic;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: left;
     font-size: larger;
 }
-.explore{
+
+.explore {
     margin: 0%;
     padding-top: 5px;
     padding-left: 25px;
 }
-.title{
+
+.title {
     font-style: italic;
     text-align: center;
-    margin-top: 25pxpx;
+    border-style: groove;
     border: 2px solid;
+    margin-top: 25px;
     border-radius: 25px;
     width: 240px;
     margin-left: 676px;
+    background-color: rgb(226, 238, 226);
 }
-.menubar{
+
+.menubar {
     display: inline-block;
     top: 2px;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     text-align: left;
     padding-left: 125px;
-    font-family:cursive;
+    font-family: cursive;
 }
-.login{
+
+.login {
     display: inline-block;
     position: fixed;
     top: 2px;
     right: 2px;
-    color: rgb(0,0,0); 
+    color: rgb(0, 0, 0);
     text-align: right;
     margin-top: 25px;
     margin-right: 100px;
 }
-.detailslogin{
+
+.detailslogin {
     cursor: pointer;
 }
 
-.list{
+.list {
     margin-left: 25px;
 }
-.help{
+
+.help {
     display: inline-block;
     position: fixed;
     top: 2px;
     right: 2px;
-    color: rgb(0, 0, 0);
+    color: rgb(235, 232, 232);
     text-align: right;
     padding-top: 25px;
     padding-right: 50px;
 }
-.checkbox{
+
+.checkbox {
     margin-left: 100px;
 }
-.container{
-    display:flex;
+
+.container {
+    display: flex;
     flex-direction: column;
     width: 78%;
     margin-left: 200px;
     margin-bottom: 30px;
-    background-color: green;
+    margin-top: 25px;
+    background-color: rgb(222, 231, 222);
+    opacity: 0.8;
     border: 2px solid;
     border-radius: 25px;
     height: 130px;
 }
-.container-from{
+
+.container-from {
     display: inline-flex;
-    margin-top: 40px;
+    margin-top: 20px;
 }
-.passenger-container{
+
+.passenger-container {
     display: inline-flex;
     margin-top: 35px;
     margin-left: 295px;
 }
-.container2{
+
+.container2 {
     display: inline-flex;
     width: 100%;
     margin: initial;
     margin-top: 20px;
     margin-left: 400px;
     margin-bottom: 30px;
-    
 }
-.container3{
+
+.container3 {
     display: inline-flex;
     width: 100%;
-    margin: initial;
-    margin-top: 20px;
     margin-left: 150px;
     margin-bottom: 30px;
-
+    margin-top: 10px;
 }
-.passanger{
+
+.passanger {
     margin-left: 50px;
 }
-.bus{
+
+.bus {
     margin-left: 40px;
 }
-.begin{
+
+.begin .reach {
     width: 150px;
     border-bottom: 50px;
-    border-radius: 20px;  
+    border-radius: 20px;
 }
-.reach{
+
+
+/* .reach{
     width: 150px;
     border-bottom: 50px;
     border-radius: 20px; 
-}
-.details{
+} */
+
+.details {
     font-family: cursive;
     font-size: medium;
+    font-weight: bold;
     width: 100%;
     margin: auto;
     height: 100%;
@@ -127,49 +154,80 @@ body{
     background-size: cover;
     position: fixed;
 }
-.from,.to{
+
+.details {
+    background: url("https://media.istockphoto.com/photos/white-bus-traveling-on-the-asphalt-road-around-line-of-trees-in-rural-picture-id1154164634?b=1&k=20&m=1154164634&s=170667a&w=0&h=qaIJdcrFAMVMEvGWkgroRBBT8GbzbtbLIg4l9mJcXSk=");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 30%;
+}
+
+.from,
+.to {
     margin-left: 50px;
 }
-.return{
+
+.return {
     margin-left: 50px;
 }
-.start{
+
+.start {
     margin-left: 50px;
 }
+
+
 /* .to{
     margin-left: 50px;
 } */
-.vaccination{
+
+.vaccination {
     margin-left: 25px;
 }
-.nameofvaccine{
+
+.nameofvaccine {
     margin-left: 50px;
 }
-.dosage,.vaccineproof,.radio{
+
+.dosage,
+.vaccineproof,
+.radio {
     margin-left: 100px;
-}.search{
-    text-align: right;
 }
-.bustype{
+
+.search {
+    text-align: center;
+}
+
+.bustype {
     width: 150px;
     border-bottom: 50px;
     border-radius: 20px;
 }
-input{
+
+input {
     border-bottom: 10px;
-    border-radius: 5px; 
+    border-radius: 5px;
 }
-.vaccinename{
+
+.vaccinename {
     width: 150px;
     border-bottom: 50px;
     border-radius: 20px;
 }
-.donatebox{
+
+.donatebox {
     text-align: right;
-    margin-right: 75px;
-    margin-top: 10px;
+    margin-right: 95px;
+    margin-top: 20px;
 }
-.donate{
+
+.donate {
     width: 5%;
 }
 
+.headcontainer {
+    background-color: rgb(39, 37, 37);
+    color: white;
+    margin-top: -10px;
+}
