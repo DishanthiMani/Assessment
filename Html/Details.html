@@ -5,30 +5,57 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/details.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="../Script/script.js"></script>
     <title>Details form</title>
 </head>
 <body>
-    <div class="header">
-        <h2>Explorer</h2>
-    </div>
-    <div class="title">
-        <h1> Ticket Booking </h1>
-        </div>
-    <div class="form">
-        <div class="menubar">
+    <div class="headcontainer">
+             <div class="header">    
+                <h2 class="explore">Xplorer</h2>
+            </div>
+            <div class="menubar">
                 <span id="newbooking" class="list"> New Booking
                 <span id="faq" class="list"> FAQ 
                 <span id="t&c" class="list"> Terms&conditions
+            </div>
+    </div>
+<div class="formcontainer">
+    <div class="form">
+        <div class="login">
+            <input type="button" id="loginbutton" onclick="loginpage()" class="detailslogin" name="login" value="Login"> 
+        </div>
+        <div class="help">
+            <a href="url" id="help"> Help!</a> 
         </div>
         <div class="details">
+            <div class="title">
+                <h1> Ticket Booking </h1>
+            </div>
             <div class="container">
+                <div class="container-from">
                 <div class="from">
                     <label for="leaving"> Leaving From:</label>
-                    <input type="text" id="from" name="leaving" required>
-                </div>
+                    <select id="from" class="begin" required>
+                        <option value=""></option>
+                        <option value="Ariyalur"> Ariyalur</option>
+                        <option value="Chengalpattu"> Chengalpattu</option>
+                        <option value="Chennai"> Chennai</option>
+                        <option value="Coimbatore"> Coimbatore</option>
+                        <option value="Cuddalore">Cuddalore</option>
+                    </select>
+                </div>                    
+                
                 <div class="to">
                     <label for="arriving to"> Going to:</label>
-                    <input type="text" id="to" name="arriving"  required>
+                    <select id="to" class="reach" required>
+                        <option value=""></option>
+                        <option value="Ariyalur"> Ariyalur</option>
+                        <option value="Chengalpattu"> Chengalpattu</option>
+                        <option value="Chennai"> Chennai</option>
+                        <option value="Coimbatore"> Coimbatore</option>
+                        <option value="Cuddalore">Cuddalore</option>
+                    </select>
                 </div>
                 <div class="start">
                     <label for="journeystarts"> Date of Journey: </label>
@@ -39,37 +66,80 @@
                     <input type="date" id="returndate" name="returnon"></br>
                 </div>
             </div>
-            <label for="passangercount"> No.of Passangers: </label>
-            <input type="number" id="passanger" name="passangercount" required>
-            <label for="typeofbus"> Type of Bus:</label>
-            <select class="bustype" >
-                <option value="">--choose--</option>
-                <option value="Normal"> Normal</option>
-                <option value="Sleeper"> Sleeper</option>
-                <option value="Semi-sleeper"> Semi-sleeper</option>
-                <option value="AC"> AC </option>
-            </select></br>
-            <label for="vaccinedetails"> Vaccination Details: </label>
-            <input type="radio" id="vaccinated" value="vaccinated" name="vaccinationdetails">
-            <label for="vaccinationdetails"> Vaccinated </label>
-            <input type="radio" id="notvaccinated" value="Not vaccinated" name="vaccinationdetails">
-            <label for="vaccinationdetails"> Not vaccinated</label>
-            <label for="vaccinetype"> Vaccine Name:</label>
-            <select class="vaccinename">
-                <option value="">--select--</option>
-                <option value="Covaxin"> Covaxin </option>
-                <option value="Covishield"> Covishield</option>
-                <option value="Sputnik V"> Sputnik V</option>
-                <option value="Sputnik Light"> Sputnik Light</option>
-                <option value="Corbevax"> Corbevax </option>
-            </select>
-            <label for="vaccinedose"> Vaccine Dosage:</label>
-            <input type="checkbox" id="first" name="dosage"> Ist Dose
-            <input type="checkbox" id="second" name="dosage"> IInd Dose</br> 
-            <label for="vaccinecertificate"> Vaccine Certificate:</label>
-            <input type="file" id="certificate" accept="pdf" name="vaccinecertificate"></br>
-            <input type="button" name="booknow" id="book" class="boking" value="Search">
+            <div class="passenger-container">
+                <div class="passanger">
+                    <label for="passangercount"> No.of Passangers: </label>
+                    <input type="number" id="passanger" name="passangercount" required>
+                </div>
+                <div class="bus">
+                    <label for="typeofbus"> Type of Bus:</label>
+                        <select class="bustype" onclick="amountcalculation()" required>
+                            <option value="Normal"> Normal</option>
+                            <option value="Sleeper"> Sleeper</option>
+                            <option value="Semi-sleeper"> Semi-sleeper</option>
+                            <option value="AC"> AC </option>
+                        </select></br>
+                </div>
+            </div>
+            </div></br>
+            <div class="container3">
+                <div class="vaccination">
+                    <label for="vaccinedetails"> Vaccination Details: </label>
+                        <div class="radio">
+                            <input type="radio" id="vaccinated" value="vaccinated" name="vaccinationdetails">
+                            <label for="vaccinationdetails"> Vaccinated </label></br>
+                            <input type="radio" id="notvaccinated" value="Not vaccinated" name="vaccinationdetails">
+                            <label for="vaccinationdetails"> Not vaccinated</label>
+                        </div>
+                </div>
+                <div class="nameofvaccine">
+                    <label for="vaccinetype"> Vaccine Name:</label>
+                    <select class="vaccinename">
+                        <option value="">--select--</option>
+                        <option value="Covaxin"> Covaxin </option>
+                        <option value="Covishield"> Covishield</option>
+                        <option value="Sputnik V"> Sputnik V</option>
+                        <option value="Sputnik Light"> Sputnik Light</option>
+                        <option value="Corbevax"> Corbevax </option>
+                    </select>
+                </div>
+                <div class="dosage">
+                    <label for="vaccinedose"> Vaccine Dosage:</label>
+                        <div class="checkbox">
+                            <input type="checkbox" id="first" name="dosage"> Ist Dose</br>
+                            <input type="checkbox" id="second" name="dosage"> IInd Dose
+                        </div>
+                </div>
+                <div class="vaccineproof">
+                    <label for="vaccinecertificate"> Vaccine Certificate:</label>
+                    <input type="file" id="certificate" accept="pdf" name="vaccinecertificate"></br>
+                </div>
+            </div>
+                <div class="search">
+                    <button type="button" name="booknow" id="book" class="booking" value="Search"> Search
+                </div>
+            <div class="donatebox">
+                <label for="doantion"> Donate the Needy! </label>
+                <span><button onclick="decrement()" id="minus" class="decrement">-</button></span>
+                <span><input type="number"  id ="donation" class="donate"></span>
+                <span><button onclick="increment()" id="plus" class="increment">+</button></span>  
+            </div>
+            <div class="pricecontainer">
+                <div class="ticketfair">
+                    <label for="ticketamount"> Ticket Fair:</label>
+                    <input type="number" name="ticketamount" id="ticket" class="ticketfair"></br>
+                </div>
+                <div class="taxamount">
+                    <label for="tickettax"> GST: </label>
+                    <input type="number" id="gstamount" name="taxprice" class="gst"></br>
+                </div>
+                <div class="totalfair">
+                    <label for="totalamount"> Total Bus Fair:</label>
+                    <input type="number" id="total" class="totalbusfair" name="grandtotal">
+                </div>
+            </div>
         </div>
     </div>
+</div>
 </body>
 </html>

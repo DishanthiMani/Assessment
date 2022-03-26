@@ -15,6 +15,16 @@ function myFunction() {
   }
 function validate(){
 if(document.forms[0].checkValidity()){
+    const person = {
+        Personname : document.getElementById("name").value,
+        Dateofbirth : document.getElementById("dob").value,
+        Email : document.getElementById("email").value,
+        MobileNumber: document.getElementById("mobile").value,
+        Password : document.getElementById("pword").value,
+        Confirm: document.getElementById("confirmpass").value,
+        Gender : document.getElementById("male").checked?"male":"female"
+    }
+    window.localStorage.getItem('person',JSON.stringify(person));
     var url = new URL("http://127.0.0.1:5500/html/index.html");
     window.location.href = url;
 }
@@ -98,4 +108,18 @@ save.disabled=checkbox.checked?false:true;
 function save(){
    var detailspage = new URL("http://127.0.0.1:5500/Html/Details.html");
    window.location.href = detailspage;
+}
+function loginpage(){
+    var loginpage = new URL("http://127.0.0.1:5500/html/index.html");
+    window.location.href = loginpage;
+}
+function amouncalculation(){
+
+}
+function increment(){
+    //var amount = document.getElementById("donation").value;
+     document.getElementById("donation").stepUp();
+}
+function decrement(){
+     document.getElementById("donation").stepDown();
 }

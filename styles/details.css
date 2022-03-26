@@ -1,43 +1,175 @@
 body{
-    background-color: rgb(238, 238, 208);
+    background-color: rgb(142, 197, 185);
+}
+.booking{
+    margin-right: 200px;
 }
 .header{
-    text-align: center;
+    font-weight: bolder;
+    font-style: italic;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: left;
+    font-size: larger;
+}
+.explore{
+    margin: 0%;
+    padding-top: 5px;
+    padding-left: 25px;
 }
 .title{
-  text-align: center;
+    font-style: italic;
+    text-align: center;
+    margin-top: 25pxpx;
+    border: 2px solid;
+    border-radius: 25px;
+    width: 240px;
+    margin-left: 676px;
 }
 .menubar{
     display: inline-block;
-    position: fixed;
     top: 2px;
-    left: 2px;
     color: rgb(0, 0, 0);
-    height: 50px;
-    width: 100%;
     text-align: left;
-    padding-top: 25px;
-    padding-left: 10px;
+    padding-left: 125px;
+    font-family:cursive;
 }
-
-/*.menubar{
+.login{
     display: inline-block;
     position: fixed;
-    top: 0;
-    left: 0;
-    background-color: rgba(172, 166, 166, 0.397);
-    height: 100%;
-    width: 200px;
+    top: 2px;
+    right: 2px;
+    color: rgb(0,0,0); 
+    text-align: right;
+    margin-top: 25px;
+    margin-right: 100px;
+}
+.detailslogin{
+    cursor: pointer;
+}
 
-}*/
+.list{
+    margin-left: 25px;
+}
+.help{
+    display: inline-block;
+    position: fixed;
+    top: 2px;
+    right: 2px;
+    color: rgb(0, 0, 0);
+    text-align: right;
+    padding-top: 25px;
+    padding-right: 50px;
+}
+.checkbox{
+    margin-left: 100px;
+}
 .container{
-    width: 80%;
-    margin: 2%;
-    margin-left: 10px;
+    display:flex;
+    flex-direction: column;
+    width: 78%;
+    margin-left: 200px;
+    margin-bottom: 30px;
+    background-color: green;
+    border: 2px solid;
+    border-radius: 25px;
+    height: 130px;
+}
+.container-from{
+    display: inline-flex;
+    margin-top: 40px;
+}
+.passenger-container{
+    display: inline-flex;
+    margin-top: 35px;
+    margin-left: 295px;
+}
+.container2{
+    display: inline-flex;
+    width: 100%;
+    margin: initial;
+    margin-top: 20px;
+    margin-left: 400px;
+    margin-bottom: 30px;
+    
+}
+.container3{
+    display: inline-flex;
+    width: 100%;
+    margin: initial;
+    margin-top: 20px;
+    margin-left: 150px;
+    margin-bottom: 30px;
+
+}
+.passanger{
+    margin-left: 50px;
+}
+.bus{
+    margin-left: 40px;
+}
+.begin{
+    width: 150px;
+    border-bottom: 50px;
+    border-radius: 20px;  
+}
+.reach{
+    width: 150px;
+    border-bottom: 50px;
+    border-radius: 20px; 
 }
 .details{
-    padding-left: 0%;
-    width: 80%;
-    margin: 5%;
+    font-family: cursive;
+    font-size: medium;
+    width: 100%;
+    margin: auto;
     height: 100%;
+    border-top: 5px solid slategrey;
+    background-size: cover;
+    position: fixed;
 }
+.from,.to{
+    margin-left: 50px;
+}
+.return{
+    margin-left: 50px;
+}
+.start{
+    margin-left: 50px;
+}
+/* .to{
+    margin-left: 50px;
+} */
+.vaccination{
+    margin-left: 25px;
+}
+.nameofvaccine{
+    margin-left: 50px;
+}
+.dosage,.vaccineproof,.radio{
+    margin-left: 100px;
+}.search{
+    text-align: right;
+}
+.bustype{
+    width: 150px;
+    border-bottom: 50px;
+    border-radius: 20px;
+}
+input{
+    border-bottom: 10px;
+    border-radius: 5px; 
+}
+.vaccinename{
+    width: 150px;
+    border-bottom: 50px;
+    border-radius: 20px;
+}
+.donatebox{
+    text-align: right;
+    margin-right: 75px;
+    margin-top: 10px;
+}
+.donate{
+    width: 5%;
+}
+
