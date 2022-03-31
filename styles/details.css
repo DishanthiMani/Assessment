@@ -1,233 +1,217 @@
 body {
-    background-color: rgb(224, 240, 236);
-    background: url("../details1.jpg");
-    background-size: cover;
-    /* background-position: center; */
-    margin-right: -1px;
-    margin-left: -1px;
+    background-color: #86c1cc;
+    margin: 0%;
 }
 
 .booking {
+    margin-left: 15%;
+    margin-top: 15px;
+    width: 100px;
+    height: 25px;
     cursor: pointer;
 }
 
-.header {
-    font-weight: bolder;
-    font-style: italic;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    text-align: left;
-    font-size: larger;
+.bus {
+    display: inline-grid;
+    width: 150px;
+    margin-bottom: 20px;
+    margin-left: 10%;
 }
 
-.explore {
-    margin: 0%;
-    padding-top: 5px;
-    padding-left: 25px;
+.container-from {
+    display: flex;
 }
 
-.title {
-    font-style: italic;
+.details {
+    background-color: white;
+    width: 930px;
+    height: 440px;
+    box-shadow: 0 8px 20px 0 rgba(22, 22, 22, 0.15);
+    margin: auto;
+    margin-top: 100px;
+    position: relative;
+    font-family: raleway, sans-serif;
     text-align: center;
-    border-style: groove;
-    border: 2px solid;
-    margin-top: 25px;
-    border-radius: 25px;
-    width: 240px;
-    margin-left: 676px;
-    background-color: rgb(226, 238, 226);
-}
-
-.menubar {
-    display: inline-block;
-    top: 2px;
-    color: rgb(255, 255, 255);
-    text-align: left;
-    padding-left: 125px;
-    font-family: cursive;
-}
-
-.login {
-    display: inline-block;
-    position: fixed;
-    top: 2px;
-    right: 2px;
-    color: rgb(0, 0, 0);
-    text-align: right;
-    margin-top: 25px;
-    margin-right: 100px;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 40px 30px 47px;
+    border-left: 2px solid;
+    border-bottom: 2px solid;
+    border-radius: 8px;
 }
 
 .detailslogin {
     cursor: pointer;
+    font-size: x-large;
+}
+
+.donate {
+    width: 20%;
+}
+
+.donation-box {
+    display: block;
+}
+
+.donatebox {
+    display: block;
+    margin-top: 10px;
+}
+.form-right{
+    position: absolute;
+    width: 536px; ;
+    height: 500px;
+    right: 10px;
+    top: 0%;
+    bottom: 0%;
+}
+.form-image{
+    height: 500px;
+    width: 546px;
+    border-radius: 5px;
+}
+
+.help {
+    display: inline-block;
+    position: absolute;
+    margin-top: -8px;
+    right: 2px;
+    text-align: right;
+    margin-right: 70px;
+}
+
+.journey-date {
+    display: flex;
+}
+
+.journey-startdate {
+    width: 146px;
+    height: 19px;
+    margin-top: -12px;
+}
+
+.passanger-container {
+    display: flex;
+}
+
+.passenger-count {
+    width: 137px;
+    height: 16px;
+}
+
+.from {
+    display: inline-grid;
+    width: 150px;
+    margin-bottom: 20px;
+}
+
+.form-help {
+    font-size: larger;
+    color: white;
+    position: static;
+}
+
+.explore {
+    margin: 0%;
+    padding-left: 25px;
+}
+
+.headcontainer {
+    background-color: rgb(39, 37, 37);
+    color: white;
+    margin-top: 0px;
 }
 
 .list {
     margin-left: 25px;
 }
 
-.help {
+.login {
     display: inline-block;
-    position: fixed;
-    top: 2px;
-    right: 2px;
-    color: rgb(235, 232, 232);
+    position: absolute;
+    right: 35px;
+    color: rgb(0, 0, 0);
     text-align: right;
-    padding-top: 25px;
-    padding-right: 50px;
+    margin-top: -14px;
+    margin-right: 100px;
 }
 
-.checkbox {
-    margin-left: 100px;
-}
-
-.container {
-    display: flex;
-    flex-direction: column;
-    width: 78%;
-    margin-left: 200px;
-    margin-bottom: 30px;
-    margin-top: 25px;
-    background-color: rgb(222, 231, 222);
-    opacity: 0.8;
-    border: 2px solid;
-    border-radius: 25px;
-    height: 130px;
-}
-
-.container-from {
-    display: inline-flex;
-    margin-top: 20px;
-}
-
-.passenger-container {
-    display: inline-flex;
-    margin-top: 35px;
-    margin-left: 295px;
-}
-
-.container2 {
-    display: inline-flex;
-    width: 100%;
-    margin: initial;
-    margin-top: 20px;
-    margin-left: 400px;
-    margin-bottom: 30px;
-}
-
-.container3 {
-    display: inline-flex;
-    width: 100%;
-    margin-left: 150px;
-    margin-bottom: 30px;
-    margin-top: 10px;
+.menubar {
+    display: inline-block;
+    margin-bottom: 16px;
+    color: rgb(255, 255, 255);
+    text-align: left;
+    padding-left: 125px;
+    font-family: cursive;
 }
 
 .passanger {
-    margin-left: 50px;
-}
-
-.bus {
-    margin-left: 40px;
-}
-
-.begin .reach {
+    display: inline-grid;
     width: 150px;
-    border-bottom: 50px;
-    border-radius: 20px;
+    margin-bottom: 36px;
 }
 
-
-/* .reach{
-    width: 150px;
-    border-bottom: 50px;
-    border-radius: 20px; 
-} */
-
-.details {
-    font-family: cursive;
-    font-size: medium;
-    font-weight: bold;
-    width: 100%;
-    margin: auto;
-    height: 100%;
-    border-top: 5px solid slategrey;
-    background-size: cover;
-    position: fixed;
-}
-
-.details {
-    background: url("https://media.istockphoto.com/photos/white-bus-traveling-on-the-asphalt-road-around-line-of-trees-in-rural-picture-id1154164634?b=1&k=20&m=1154164634&s=170667a&w=0&h=qaIJdcrFAMVMEvGWkgroRBBT8GbzbtbLIg4l9mJcXSk=");
-    background-size: cover;
-    background-position: center;
-    width: 100%;
-    height: 30%;
-}
-
-.from,
-.to {
-    margin-left: 50px;
-}
-
-.return {
-    margin-left: 50px;
-}
-
-.start {
-    margin-left: 50px;
-}
-
-
-/* .to{
-    margin-left: 50px;
-} */
-
-.vaccination {
-    margin-left: 25px;
-}
-
-.nameofvaccine {
-    margin-left: 50px;
-}
-
-.dosage,
-.vaccineproof,
 .radio {
-    margin-left: 100px;
+    display: contents;
+}
+
+h1 {
+    text-align: left;
+}
+
+label {
+    display: flex;
+    padding-bottom: 10px;
+}
+
+.location-error {
+    display: none;
+}
+
+.search-container {
+    display: flex;
 }
 
 .search {
-    text-align: center;
+    margin-left: 5%;
 }
 
-.bustype {
+select {
+    width: 148px;
+    height: 26px;
+}
+
+.start {
+    display: inline-grid;
     width: 150px;
-    border-bottom: 50px;
-    border-radius: 20px;
+    margin-bottom: 20px;
 }
 
-input {
-    border-bottom: 10px;
-    border-radius: 5px;
-}
-
-.vaccinename {
+.to {
+    display: inline-grid;
     width: 150px;
-    border-bottom: 50px;
-    border-radius: 20px;
+    margin-bottom: 20px;
+    margin-left: 10%;
 }
 
-.donatebox {
-    text-align: right;
-    margin-right: 95px;
-    margin-top: 20px;
+.return {
+    display: inline-grid;
+    width: 150px;
+    margin-bottom: 20px;
+    margin-left: 10%;
 }
 
-.donate {
-    width: 5%;
+@media only screen and (max-width: 768px) {
+.details{
+    width: 415px;
+    height: 880px;
 }
-
-.headcontainer {
-    background-color: rgb(39, 37, 37);
-    color: white;
-    margin-top: -10px;
+.form-right{
+    top: 50%;
+    width:500px;
+}
+.form-image{
+    height: 467px;
+    width: 478px;
+}
 }
