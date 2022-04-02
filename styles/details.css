@@ -143,6 +143,7 @@ body {
     text-align: left;
     padding-left: 125px;
     font-family: cursive;
+    cursor: pointer;
 }
 
 .passanger {
@@ -158,11 +159,20 @@ body {
 h1 {
     text-align: left;
 }
+.json-form{
+    margin-top: 100px;
+}
+label{
+    margin-bottom: 10px;
+}
+input{
+margin-bottom: 10px;
+}
 
-label {
+/* label {
     display: flex;
     padding-bottom: 10px;
-}
+} */
 
 .location-error {
     display: none;

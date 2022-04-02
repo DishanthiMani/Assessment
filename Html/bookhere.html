@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="../script/script.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .json-card{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .json-card1, .json-card2, .json-card3, .json-card4{
+    background-color: rgb(140, 197, 230);
+    width: 272px;
+    height: 211px;
+    box-shadow: 0 8px 20px 0 rgba(22, 22, 22, 0.15);
+    margin-left: 10%;
+    margin-top: 100px;
+    position: relative;
+    font-family: raleway, sans-serif;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 40px 30px 47px;
+    border-left: 2px solid;
+    border-bottom: 2px solid;
+    border-radius: 8px;
+    }
+    input{
+        margin-bottom: 10px;
+        width: 207px;
+        height: 20px;
+    }
+    .formbutton{
+        display: inline-flex;
+        flex-direction: column;
+        width: 100px;
+    }
+    .json-button{
+        width: 77px;
+        height: 29px;margin-top: 50px;
+        margin-left: 75px;
+    }
+</style>
+<body >
+    <div class="view-data">
+    <button type="button" class="json-button" onclick="creatingJSON()" id="jsonButton"> View Data</button>
+</div>
+    <div class="json-card">
+    <div id="jsoncard1" class="json-card1">
+        <label for="name">Name</label>
+        <input type="text" id="namefield" class="name-field" >
+        <label for="email">Emali</label>
+        <input type="email" id="emailfield" class="email-field">
+        <label for="gender"> Gender</label>
+        <input type="text" id="genderfield" class="gender-field">
+        <div class="formbuttom">
+        <button type="button" id="deletecard" class="delete-card"> Delete</button>
+        <span><button type="button" id="editcard" class="edit-card"> Edit </button></span></div>
+
+    </div>
+    <div id="jsoncard2" class="json-card2">
+        <label for="name">Name</label>
+        <input type="text" id="namefield1" class="name-field" >
+        <label for="email">Emali</label>
+        <input type="email" id="emailfield1" class="email-field">
+        <label for="gender"> Gender</label>
+        <input type="text" id="genderfield1" class="gender-field">
+        <div class="formbuttom">
+        <button type="button" id="deletecard" class="delete-card"> Delete</button>
+        <span><button type="button" id="editcard" class="edit-card"> Edit </button></span></div>
+
+    </div>
+    <div id="jsoncard3" class="json-card3">
+        <label for="name">Name</label>
+        <input type="text" id="namefield2" class="name-field">
+        <label for="email">Emali</label>
+        <input type="email" id="emailfield2" class="email-field">
+        <label for="gender"> Gender</label>
+        <input type="text" id="genderfield2" class="gender-field">
+        <div class="formbuttom">
+        <button type="button" id="deletecard" class="delete-card"> Delete</button>
+        <span><button type="button" id="editcard" class="edit-card"> Edit </button></span></div>
+
+    </div>
+    <div id="jsoncard4" class="json-card4">
+        <label for="name">Name</label>
+        <input type="text" id="namefield3" class="name-field" >
+        <label for="email">Emali</label>
+        <input type="email" id="emailfield3" class="email-field">
+        <label for="gender"> Gender</label>
+        <input type="text" id="genderfield3" class="gender-field">
+        <div class="formbuttom">
+        <button type="button" id="deletecard" class="delete-card"> Delete</button>
+        <span><button type="button" id="editcard" class="edit-card"> Edit </button></span></div>
+
+    </div>
+</div>
+</body>
+</html>

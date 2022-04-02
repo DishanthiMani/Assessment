@@ -1,5 +1,3 @@
-var date = new Date().toISOString().split("T")[0];
-
 function locationFrom() {
     var travelLocation = ["Ariyalur", "Chengalpattu", "Chennai", "Coimbatore", "Cuddalore", "Dharmapuri", "Dindigul", "Erode", "Kallakurichi", "Kanchipuram", "Kanyakumari", "Karur", "Krishnagiri", "Madurai", "Nagapattinam", "Namakkal", "Nilgiris", "Perambalur", "Pudukkottai", "Ramanathapuram", "Ranipet", "Salem", "Sivaganga", "Tenkasi", "Thanjavur", "Theni", "Tuticorin", "Tiruchirappalli", "Tirunelveli", "Tirupathur", "Tiruppur", "Tiruvallur", "Tiruvannamalai", "Tiruvarur", "Vellore", "Viluppuram", "Virudhunagar"]
     travelLocation.forEach(element => {
@@ -64,8 +62,9 @@ function validate() {
         }
         console.log(JSON.stringify(person))
         window.localStorage.setItem('person', JSON.stringify(person));
-        var url = new URL("http://127.0.0.1:5500/html/index.html");
-        window.location.href = url;
+        console.log(JSON.stringify(person));
+        // var url = new URL("http://127.0.0.1:5500/html/index.html");
+        // window.location.href = url;
     }
 }
 
@@ -144,59 +143,6 @@ function confirmpassword() {
     }
 
 }
-
-function booking() {
-    var checkbox = document.getElementById("check");
-    var save = document.getElementById("savedetails");
-    save.disabled = checkbox.checked ? false : true;
-}
-
-function save() {
-    var detailspage = new URL("http://127.0.0.1:5500/Html/Details.html");
-    window.location.href = detailspage;
-}
-
-function loginpage() {
-    var loginpage = new URL("http://127.0.0.1:5500/html/index.html");
-    window.location.href = loginpage;
-}
-
-function startingDate() {
-    var todayDate = new Date().toISOString().split("T")[0];
-    if (document.getElementById("leavingdate") != null) {
-        document.getElementById("leavingdate").setAttribute("min", todayDate);
-    }
-}
-
-function journeyDate() {
-    var journeydate = document.getElementById("leavingdate").value;
-    var date1 = new Date(journeydate);
-    console.log(date1)
-    console.log(typeof date1);
-    var date = date1.getDate() + 2;
-    var year = date1.getFullYear();
-    var month = date1.getMonth() + 1;
-    var minimumDate = year + "-" + month + "-" + date;
-    document.getElementById("returndate").setAttribute("min", minimumDate);
-    console.log(minimumDate);
-
-}
-
-function endingDate() {
-    var x = document.getElementById("leavingdate").value;
-    console.log(x);
-    console.log(typeof x);
-    var date1 = new Date(x);
-    console.log(date1)
-    console.log(typeof date1);
-    var date = date1.getDate() + 1;
-    var year = date1.getFullYear();
-    var month = date1.getMonth() + 1;
-    var minimumDate = year + "-" + month + "-" + date;
-    document.getElementById("returndate").setAttribute("min", minimumDate);
-    console.log(minimumDate);
-}
-
 function birthDate() {
     var currentDate = new Date();
     var currentYear = currentDate.getFullYear() - 10;
@@ -210,4 +156,84 @@ function increment() {
 
 function decrement() {
     document.getElementById("donation").stepDown();
+}
+
+function booking() {
+    var checkbox = document.getElementById("check");
+    var save = document.getElementById("savedetails");
+    save.disabled = checkbox.checked ? false : true;
+}
+
+function save() {
+    var detailspage = new URL("http://127.0.0.1:5500/html/details.html");
+    window.location.href = detailspage;
+}
+
+function loginpage() {
+    var loginpage = new URL("http://127.0.0.1:5500/html/index.html");
+    window.location.href = loginpage;
+}
+function newBooking(){
+    var newTicketBooking = new URL("http://127.0.0.1:5500/html/details.html");
+    window.location.href = newTicketBooking;
+}
+
+function startingDate() {
+    var todayDate = new Date().toLocaleDateString();
+    if (document.getElementById("leavingdate") != null) {
+        document.getElementById("leavingdate").setAttribute("min", todayDate);
+        console.log(todayDate);
+    }
+}
+
+function journeyDate() {
+    var journeydate = document.getElementById("leavingdate").value;
+    console.log(journeydate);
+    console.log(typeof journeydate);
+    var date1 = new Date(journeydate);
+    console.log(date1)
+    console.log(typeof date1);
+    var objectdate = date1.setDate(date1.getDate()+1);
+    console.log(objectdate);
+    console.log(typeof objectdate);
+    var year = date1.getFullYear();
+    var month = date1.getMonth() + 1;
+    var minimumDate = year + "-" + month + "-" + objectdate;
+    document.getElementById("returndate").setAttribute("min", minimumDate);
+    console.log(minimumDate);
+
+}
+function displayJSON(){
+    var url = new URL("http://127.0.0.1:5500/html/bookhere.html");
+        window.location.href = url;
+}
+function creatingJSON(){
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("GET","https://gorest.co.in/public/v2/users",true);
+    xhttp.setRequestHeader("accept", "application/JSON");
+    xhttp.send();
+    xhttp.onload = function() {
+        dataSendFunction(this);
+    }
+
+    function dataSendFunction(request) {
+        var require = JSON.parse(request.responseText);
+        if(request.readyState == 4 && request.status == 200){
+            console.log(require);
+            document.getElementById("namefield").value = require[0].name;
+            document.getElementById("emailfield").value = require[0].email;
+            document.getElementById("genderfield").value = require[0].gender;
+            document.getElementById("namefield1").value = require[1].name;
+            document.getElementById("emailfield1").value = require[1].email;
+            document.getElementById("genderfield1").value = require[1].gender;
+            document.getElementById("namefield2").value = require[2].name;
+            document.getElementById("emailfield2").value = require[2].email;
+            document.getElementById("genderfield2").value = require[2].gender;
+
+        }else{
+            alert("check for readystate and state");
+        }
+
+    }
+
 }
