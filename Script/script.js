@@ -208,6 +208,7 @@ function displayJSON(){
         window.location.href = url;
 }
 function creatingJSON(){
+
     var xhttp = new XMLHttpRequest();
     xhttp.open("GET","https://gorest.co.in/public/v2/users",true);
     xhttp.setRequestHeader("accept", "application/JSON");
@@ -220,20 +221,170 @@ function creatingJSON(){
         var require = JSON.parse(request.responseText);
         if(request.readyState == 4 && request.status == 200){
             console.log(require);
-            document.getElementById("namefield").value = require[0].name;
-            document.getElementById("emailfield").value = require[0].email;
-            document.getElementById("genderfield").value = require[0].gender;
-            document.getElementById("namefield1").value = require[1].name;
-            document.getElementById("emailfield1").value = require[1].email;
-            document.getElementById("genderfield1").value = require[1].gender;
-            document.getElementById("namefield2").value = require[2].name;
-            document.getElementById("emailfield2").value = require[2].email;
-            document.getElementById("genderfield2").value = require[2].gender;
-
+            for(i = 0; i < require.length; i++){
+                var sampleDiv = document.createElement('DIV');
+                sampleDiv.setAttribute("id", "sampleDiv"+i);
+                sampleDiv.setAttribute("class","sample-div");
+                var sampleId = document.createElement("label");
+                sampleId.setAttribute("for","Id"+i);
+                sampleId.innerText = "Id";
+                sampleDiv.append(sampleId);
+                var idInput = document.createElement("input");
+                idInput.setAttribute("id","sampleId"+i);
+                idInput.setAttribute("class","sample-id");
+                idInput.readOnly = true;
+                idInput.value = require[i].id;
+                sampleDiv.append(idInput);
+                var nameLabel = document.createElement("label");
+                nameLabel.setAttribute("for","name"+i)
+                nameLabel.innerText = "Name";
+                sampleDiv.append(nameLabel)
+                var nameInput = document.createElement("input");
+                nameInput.setAttribute("id","sampleName"+i);
+                nameInput.setAttribute("class","sample-name");
+                nameInput.readOnly=true;
+                nameInput.value = require[i].name;
+                sampleDiv.append(nameInput);
+                var emailLabel = document.createElement("label");
+                emailLabel.setAttribute("for", "email"+i);
+                emailLabel.innerText = "Email";
+                sampleDiv.append(emailLabel);
+                var emailInput = document.createElement("input");
+                emailInput.setAttribute("id", "sampleEmail"+i);
+                emailInput.setAttribute("class","sample-email");
+                emailInput.readOnly=true;
+                emailInput.value = require[i].email;
+                sampleDiv.append(emailInput);
+                var genderLabel = document.createElement("label");
+                genderLabel.innerText = "Gender";
+                genderLabel.setAttribute("for","gender"+i);
+                sampleDiv.append(genderLabel);
+                var genderInput = document.createElement("input");
+                genderInput.setAttribute("id", "sampleGender"+i);
+                genderInput.setAttribute("class","sample-gender");
+                genderInput.readOnly=true;
+                genderInput.value = require[i].gender;
+                sampleDiv.append(genderInput);
+                var statusLabel = document.createElement("label");
+                statusLabel.innerText = "Status";
+                statusLabel.setAttribute("for","status"+i);
+                sampleDiv.append(statusLabel);
+                var statusInput = document.createElement("input");
+                statusInput.setAttribute("id", "sampleStatus"+i);
+                statusInput.setAttribute("class","sample-status");
+                statusInput.readOnly = true;
+                statusInput.value = require[i].status;
+                sampleDiv.append(statusInput);
+                var sampleButton = document.createElement("div");
+                sampleButton.setAttribute("id","sampleButton"+i);
+                sampleButton.setAttribute("class","sample-button")
+                sampleDiv.appendChild(sampleButton)
+                var deleteButton = document.createElement("button");
+                deleteButton.setAttribute("id","deleteButton"+i);
+                deleteButton.setAttribute("class","delete-button");
+                deleteButton.setAttribute("onclick","deleteJSONData(this)");
+                deleteButton.innerText = "Delete"
+                sampleDiv.append(deleteButton);
+                var editButton = document.createElement("button");
+                editButton.setAttribute("id","editButton"+i);
+                editButton.setAttribute("class","edit-button");
+                editButton.setAttribute("onclick","editData(this)");
+                editButton.innerText = "Edit"
+                sampleDiv.append(editButton);
+                document.getElementById('card-container').appendChild(sampleDiv);
+            }
         }else{
             alert("check for readystate and state");
         }
 
+    }  
+}
+function editData(element){
+    if(element.innerText == "Edit"){
+    element.parentElement.getElementsByClassName("sample-name")[0].readOnly=false;
+    element.parentElement.getElementsByClassName("sample-email")[0].readOnly=false;  
+    element.innerText = "Update";
+    }else{
+        patchJSONData();
     }
-
+    function patchJSONData(){
+        var jsonObject = {
+            jsonname : element.parentElement.getElementsByClassName("sample-name")[0].value,
+            jsonemail : element.parentElement.getElementsByClassName("sample-email")[0].value,
+            jsonstatus : element.parentElement.getElementsByClassName("sample-status")[0].value
+        }
+        console.log(jsonObject)
+        var jsonString = JSON.stringify(jsonObject);
+        console.log(jsonString)
+        var jsonId = element.parentElement.getElementsByClassName("sample-id")[0].value;
+        console.log(jsonId);
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function(){
+            if(this.readyState ==4 && this.status == 200){
+                var patchRequire = JSON.parse(this.responseText);
+                console.log(patchRequire);
+            }
+        }
+        xhttp.open("PATCH","https://gorest.co.in/public/v2/users/"+jsonId,true);
+        xhttp.setRequestHeader("Accept","application/json");
+        xhttp.setRequestHeader("Content-Type","application/json");
+        xhttp.setRequestHeader("Authorization","Bearer 4a6079d24c290e3c77f93afc7dd15b6445819e96c24fcb360c6cafb4b40dc9be");
+        xhttp.send(jsonString);
+        patchedData();
+    }
+    function patchedData(){
+        element.parentElement.getElementsByClassName("sample-name")[0].readOnly=true;
+        element.parentElement.getElementsByClassName("sample-email")[0].readOnly=true;  
+        element.innerText = "Edit";
+    }
+}
+function deleteJSONData(ele){ 
+    var deletingId = ele.parentElement.getElementsByClassName("sample-id")[0].value;
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("DELETE","https://gorest.co.in/public/v2/users/"+deletingId,true);
+    xhttp.setRequestHeader("accept", "application/JSON");
+    xhttp.setRequestHeader("Authorization","Bearer 4a6079d24c290e3c77f93afc7dd15b6445819e96c24fcb360c6cafb4b40dc9be");
+    xhttp.send();
+    xhttp.onreadystatechange = function(){
+        if(this.readyState == 4 ){
+        if(this.status == 204){
+            alert("Data successfully deleted");
+        }else{
+            alert("check Status");
+        }
+        }
+    }
+}
+function postData(){
+    var addForm = document.getElementById("formContainer");
+    addForm.classList.remove("form-container");
+    addForm.style.display = "flex";
+    addForm.style.position = "relative";
+    addForm.style.justifyContent = "center";
+    addForm.style.zIndex = "20";
+    postJSONData();
+}
+function postJSONData(){
+    var addingData={
+         postingname : document.getElementById("nameInput").value,
+         postingemail : document.getElementById("emailInput").value,
+         gender : "Female",
+         postingstatus : "active"
+    }
+    var postData = JSON.stringify(addingData);
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("POST","https://gorest.co.in/public/v2/users",true);
+    xhttp.setRequestHeader("Content-Type","application/json");
+    xhttp.setRequestHeader("Authorization","Bearer 4a6079d24c290e3c77f93afc7dd15b6445819e96c24fcb360c6cafb4b40dc9be");
+    xhttp.onreadystatechange = function(){
+        if(this.readyState == 4 ){
+        if(this.status == 201){
+            alert("Data posted successfully");
+        }else{
+            alert("check for status and readystatus");
+        }
+    }
+    }
+    xhttp.send(postData);
+    console.log(postData);
 }

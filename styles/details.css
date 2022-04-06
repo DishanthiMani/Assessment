@@ -21,7 +21,13 @@ body {
 .container-from {
     display: flex;
 }
-
+.crud-operations{
+    display: inline-flex;
+    padding-left: 2%;
+}
+.crud-page{
+    cursor: pointer;
+}
 .details {
     background-color: white;
     width: 930px;
@@ -159,9 +165,7 @@ body {
 h1 {
     text-align: left;
 }
-.json-form{
-    margin-top: 100px;
-}
+
 label{
     margin-bottom: 10px;
 }
