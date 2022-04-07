@@ -100,7 +100,7 @@
         display: flex;
         flex-direction: column;
         margin: 20px;
-        background: rgb(179, 216, 214);
+        background: rgb(181, 204, 155);
         width: fit-content;
         padding: 25px;
         border-radius: 10px;
@@ -128,15 +128,15 @@
                 <input type="text" class="form-name" id="nameInput"></br>
                 <label for="formEmail"> Email </label>
                 <input type="email" class="form-email" id="emailInput"></br>
-                <input class="input" type="radio" id="jsonmale" name="gender" value="Male">
+                <!-- <input class="input" type="radio" id="jsonmale" name="gender" value="Male">
                 <label for="male">Male </label>
                 <input class="input" type="radio" id="jsonfemlae" name="gender" value="Female">
-                <label for="female"> Female</label></br>
+                <label for="female"> Female</label></br> -->
                 <label for="submit"></label>
-                <button type="button" name="save" class="savebutton" id="savedetails" 
+                <button type="button" name="save" class="savebutton" id="savedetails" onclick="postJSONData()"
                     value="Save"> Submit </button>
-                <button type="button" name="submitdata" class="submit-data" id="submitdata"
-                    value="submitdata"> Save</button>
+                <button type="button" name="submitdata" class="submit-data" id="submitdata" onclick="closePostingForm()"
+                    value="submitdata"> Cancel</button>
             </div>
         </div>
         </div>

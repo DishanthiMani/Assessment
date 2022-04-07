@@ -1,3 +1,6 @@
+import "common/element.js";
+
+
 function locationFrom() {
     var travelLocation = ["Ariyalur", "Chengalpattu", "Chennai", "Coimbatore", "Cuddalore", "Dharmapuri", "Dindigul", "Erode", "Kallakurichi", "Kanchipuram", "Kanyakumari", "Karur", "Krishnagiri", "Madurai", "Nagapattinam", "Namakkal", "Nilgiris", "Perambalur", "Pudukkottai", "Ramanathapuram", "Ranipet", "Salem", "Sivaganga", "Tenkasi", "Thanjavur", "Theni", "Tuticorin", "Tiruchirappalli", "Tirunelveli", "Tirupathur", "Tiruppur", "Tiruvallur", "Tiruvannamalai", "Tiruvarur", "Vellore", "Viluppuram", "Virudhunagar"]
     travelLocation.forEach(element => {
@@ -50,7 +53,9 @@ function toggle() {
 }
 
 function validate() {
+
     if (document.forms[0].checkValidity()) {
+
         const person = {
             Personname: document.getElementById("name").value,
             Dateofbirth: document.getElementById("dob").value,
@@ -63,8 +68,8 @@ function validate() {
         console.log(JSON.stringify(person))
         window.localStorage.setItem('person', JSON.stringify(person));
         console.log(JSON.stringify(person));
-        // var url = new URL("http://127.0.0.1:5500/html/index.html");
-        // window.location.href = url;
+        var url = new URL("http://127.0.0.1:5500/html/index.html");
+        window.location.href = url;
     }
 }
 
@@ -76,6 +81,7 @@ function nametest() {
     if (nameRegex.test(nameValue)) {
         nameSpanId.classList.add("errormessage");
         nameInputBox.style.borderColor = "grey";
+        nameSpanId.style.marginLeft = "50px";
     } else {
         nameSpanId.classList.remove("errormessage");
         nameSpanId.style.color = "red";
@@ -143,7 +149,9 @@ function confirmpassword() {
     }
 
 }
+
 function birthDate() {
+
     var currentDate = new Date();
     var currentYear = currentDate.getFullYear() - 10;
     var birthday = currentYear + "-12-31";
@@ -173,6 +181,7 @@ function loginpage() {
     var loginpage = new URL("http://127.0.0.1:5500/html/index.html");
     window.location.href = loginpage;
 }
+
 function newBooking(){
     var newTicketBooking = new URL("http://127.0.0.1:5500/html/details.html");
     window.location.href = newTicketBooking;
@@ -182,11 +191,10 @@ function startingDate() {
     var todayDate = new Date().toLocaleDateString();
     if (document.getElementById("leavingdate") != null) {
         document.getElementById("leavingdate").setAttribute("min", todayDate);
-        console.log(todayDate);
     }
 }
 
-function journeyDate() {
+function journeyEndingDate() {
     var journeydate = document.getElementById("leavingdate").value;
     console.log(journeydate);
     console.log(typeof journeydate);
@@ -203,6 +211,8 @@ function journeyDate() {
     console.log(minimumDate);
 
 }
+
+///// CRUD //////
 function displayJSON(){
     var url = new URL("http://127.0.0.1:5500/html/bookhere.html");
         window.location.href = url;
@@ -294,7 +304,7 @@ function creatingJSON(){
                 document.getElementById('card-container').appendChild(sampleDiv);
             }
         }else{
-            alert("check for readystate and state");
+            alert(" Failed to fetch Data");
         }
 
     }  
@@ -309,9 +319,9 @@ function editData(element){
     }
     function patchJSONData(){
         var jsonObject = {
-            jsonname : element.parentElement.getElementsByClassName("sample-name")[0].value,
-            jsonemail : element.parentElement.getElementsByClassName("sample-email")[0].value,
-            jsonstatus : element.parentElement.getElementsByClassName("sample-status")[0].value
+            name : element.parentElement.getElementsByClassName("sample-name")[0].value,
+            email : element.parentElement.getElementsByClassName("sample-email")[0].value,
+            status : element.parentElement.getElementsByClassName("sample-status")[0].value
         }
         console.log(jsonObject)
         var jsonString = JSON.stringify(jsonObject);
@@ -321,8 +331,7 @@ function editData(element){
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function(){
             if(this.readyState ==4 && this.status == 200){
-                var patchRequire = JSON.parse(this.responseText);
-                console.log(patchRequire);
+                alert("Data updated successfully");
             }
         }
         xhttp.open("PATCH","https://gorest.co.in/public/v2/users/"+jsonId,true);
@@ -349,8 +358,9 @@ function deleteJSONData(ele){
         if(this.readyState == 4 ){
         if(this.status == 204){
             alert("Data successfully deleted");
+            creatingJSON();
         }else{
-            alert("check Status");
+            alert("Failed to delete data");
         }
         }
     }
@@ -362,18 +372,18 @@ function postData(){
     addForm.style.position = "relative";
     addForm.style.justifyContent = "center";
     addForm.style.zIndex = "20";
-    postJSONData();
 }
 function postJSONData(){
     var addingData={
-         postingname : document.getElementById("nameInput").value,
-         postingemail : document.getElementById("emailInput").value,
-         gender : "Female",
-         postingstatus : "active"
+         name : document.getElementById("nameInput").value,
+         email : document.getElementById("emailInput").value,
+         gender : "female",
+         status : "active"
     }
     var postData = JSON.stringify(addingData);
     var xhttp = new XMLHttpRequest();
     xhttp.open("POST","https://gorest.co.in/public/v2/users",true);
+    xhttp.setRequestHeader("Accept","application/json");
     xhttp.setRequestHeader("Content-Type","application/json");
     xhttp.setRequestHeader("Authorization","Bearer 4a6079d24c290e3c77f93afc7dd15b6445819e96c24fcb360c6cafb4b40dc9be");
     xhttp.onreadystatechange = function(){
@@ -381,10 +391,15 @@ function postJSONData(){
         if(this.status == 201){
             alert("Data posted successfully");
         }else{
-            alert("check for status and readystatus");
+            alert("Data already registered");
         }
     }
     }
     xhttp.send(postData);
     console.log(postData);
+}
+
+function closePostingForm(){
+    var postingForm = document.getElementById("formContainer");
+    postingForm.style.display = "none";
 }

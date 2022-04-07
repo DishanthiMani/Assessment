@@ -4,7 +4,6 @@ body {
 }
 
 .booking {
-    margin-left: 15%;
     margin-top: 15px;
     width: 100px;
     height: 25px;
@@ -27,7 +26,15 @@ body {
 }
 .crud-page{
     cursor: pointer;
+    width: 80px;
+    height: 28px;
+    font-weight: 800;
 }
+.crud-page:hover{
+    background-color: black;
+    color: white;
+}
+
 .details {
     background-color: white;
     width: 930px;
@@ -49,17 +56,26 @@ body {
 .detailslogin {
     cursor: pointer;
     font-size: x-large;
+    font-weight: 800;
+    border-radius: 25px;
+}
+.detailslogin:hover{
+    background-color: black;
+    color: white;
 }
 
 .donate {
     width: 20%;
+    border-radius: 4px;
 }
 
 .donation-box {
     display: block;
+    text-align: left;
 }
 
 .donatebox {
+    text-align: left;
     display: block;
     margin-top: 10px;
 }
@@ -89,11 +105,16 @@ body {
 .journey-date {
     display: flex;
 }
+.journey-enddate{
+    width: 148px;
+    height: 25px;
+    border-radius: 6px;
+}
 
 .journey-startdate {
-    width: 146px;
-    height: 19px;
-    margin-top: -12px;
+    width: 148px;
+    height: 25px;
+    border-radius: 6px;
 }
 
 .passanger-container {
@@ -101,8 +122,9 @@ body {
 }
 
 .passenger-count {
-    width: 137px;
-    height: 16px;
+    width: 143px;
+    height: 20px;
+    border-radius: 6px;
 }
 
 .from {
@@ -125,7 +147,7 @@ body {
 .headcontainer {
     background-color: rgb(39, 37, 37);
     color: white;
-    margin-top: 0px;
+    position: relative;
 }
 
 .list {
@@ -141,7 +163,6 @@ body {
     margin-top: -14px;
     margin-right: 100px;
 }
-
 .menubar {
     display: inline-block;
     margin-bottom: 16px;
@@ -167,17 +188,9 @@ h1 {
 }
 
 label{
-    margin-bottom: 10px;
+    text-align: left;
+    
 }
-input{
-margin-bottom: 10px;
-}
-
-/* label {
-    display: flex;
-    padding-bottom: 10px;
-} */
-
 .location-error {
     display: none;
 }
@@ -191,8 +204,10 @@ margin-bottom: 10px;
 }
 
 select {
-    width: 148px;
-    height: 26px;
+    width: 154px;
+    height: 28px;
+    border-radius: 6px;
+    cursor: pointer;
 }
 
 .start {
@@ -211,7 +226,6 @@ select {
 .return {
     display: inline-grid;
     width: 150px;
-    margin-bottom: 20px;
     margin-left: 10%;
 }
 
