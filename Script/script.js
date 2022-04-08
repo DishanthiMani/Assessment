@@ -4,7 +4,7 @@ import "common/element.js";
 function locationFrom() {
     var travelLocation = ["Ariyalur", "Chengalpattu", "Chennai", "Coimbatore", "Cuddalore", "Dharmapuri", "Dindigul", "Erode", "Kallakurichi", "Kanchipuram", "Kanyakumari", "Karur", "Krishnagiri", "Madurai", "Nagapattinam", "Namakkal", "Nilgiris", "Perambalur", "Pudukkottai", "Ramanathapuram", "Ranipet", "Salem", "Sivaganga", "Tenkasi", "Thanjavur", "Theni", "Tuticorin", "Tiruchirappalli", "Tirunelveli", "Tirupathur", "Tiruppur", "Tiruvallur", "Tiruvannamalai", "Tiruvarur", "Vellore", "Viluppuram", "Virudhunagar"]
     travelLocation.forEach(element => {
-        var options = document.createElement('option');
+        var options =  elementById('option'); //document.createElement('option');
         var text = document.createTextNode(element)
         options.appendChild(text);
         document.getElementById('from').appendChild(options);
@@ -358,7 +358,6 @@ function deleteJSONData(ele){
         if(this.readyState == 4 ){
         if(this.status == 204){
             alert("Data successfully deleted");
-            creatingJSON();
         }else{
             alert("Failed to delete data");
         }

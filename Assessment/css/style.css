@@ -1,0 +1,147 @@
+body{
+    position: relative;
+    background-color: darkcyan;
+}
+.amount-details{
+    display: flex;
+    margin-top: 4px;
+}
+.cancel-button{
+    position: absolute;
+    bottom: 65px;
+    left: 200px;
+}
+.cancel-data{
+    cursor: pointer;
+    width: 100px;
+    height: 30px;
+    border-style: groove;
+    background-color: grey;
+    color: white;
+}
+.cancel-data:hover{
+    background-color: white;
+    color: black;
+}
+
+.currency{
+    position: absolute;
+    right: 100px;
+}
+.currency-type{
+    border-style: dotted;
+    border-color: grey;
+    width: 147px;
+    height: 30px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+.expense-header{
+    border-bottom: 2px solid;
+    margin-bottom: 20px;
+}
+.expense-details{
+    position: relative;
+    display: block;
+    margin: 10% 35%;
+    padding: 25px;
+    border: 2px solid;
+    background-color: white;
+    border-color: rgb(0, 0, 0);
+    text-align: left;
+    width: 500px;
+    height: 500px;
+    border-radius: 5px;
+}
+label{
+    display: block;
+    font-size: 20px;
+}
+.paid-date{
+    margin-top: 38px;
+}
+.payment-method{
+    border-style: dotted;
+    border-color: grey;
+    width: 70px;
+    height: 30px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+.payment-date{
+    border-style: dotted;
+    border-color: grey;
+    width: 177px;
+    height: 30px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+.payment-mode{
+    position: absolute;
+    right: 140px;
+}
+.paymenttype-method{
+    display: flex;
+}
+.save-button{
+    position: absolute;
+    bottom: 65px;
+    left: 55px;
+}
+.save-data{
+    cursor: pointer;
+    width: 100px;
+    height: 30px;
+    border-style: groove;
+    background-color: grey;
+    color: white;
+}
+.save-data:hover{
+    background-color: white;
+    color: grey;
+}
+.select-paymenttype{
+    position: absolute;
+    top: 268px;
+    border-style: dotted;
+    border-color: grey;
+    width: 178px;
+    height: 30px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+
+}
+.select-expensetype{
+    border-style: dotted;
+    border-color: grey;
+    width: 300px;
+    height: 30px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+.select-name{
+    border-style: dotted;
+    border-color: grey;
+    width: 300px;
+    height: 30px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+.total-amount{
+    position: absolute;
+    bottom: 115px;
+    border-style: dotted;
+    border-color: grey;
+    width: 114px;
+    height: 30px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+@media only screen and ( max-width: 720px){
+    body{
+        background-color: rgb(240, 214, 192);
+    }
+    .expense-details{
+        margin: 10% 12%;
+    }
+}
