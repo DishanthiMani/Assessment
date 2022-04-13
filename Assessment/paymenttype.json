@@ -1,0 +1,13 @@
+{
+    "code": "0",
+    "message": "Ledger templates details are retrieved successfully",
+    "messageArgs": null,
+    "ledgerTemplates": [
+        {
+            "id": 170,
+            "code": "1",
+            "name": "Faktura",
+            "value": "1 - Faktura"
+        }
+    ]
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../script/script.js"></script>
+    <title>Expense Data</title>
+</head>
+<style>
+    body{
+        position: relative;
+        background-color: darkcyan;
+    }
+    .add-data{
+        position: absolute;
+        top: 10px;
+        right: 5%;
+        width: 8%;
+        height: 5%;
+        cursor: pointer;
+        font-family: cursive;
+        font-style: italic;
+        font-weight:bolder;
+    }
+    .add-data:hover{
+        background-color: grey;
+        color: white;
+    }
+    .button-div{
+        display: flex;
+        margin-top: 10px;
+    }
+    .expense-cards{
+        display: flex;
+        flex-wrap: wrap;
+        width: 60%;
+        top: 65px;
+        shape-outside: content-box;
+        margin: auto;
+        position: relative;
+        background-color: white;
+        border-radius: 30px;
+    }
+    .form-div{
+        display: flex;
+        flex-direction: column;
+        margin: 20px;
+        background: gray;
+        width: fit-content;
+        padding: 25px;
+        border-radius: 10px;
+        color: white;
+    }
+    .edit-button{
+        width: 77px;
+        height: 29px;
+        cursor: pointer;
+    }
+    .delete-button{
+        width: 77px;
+        height: 29px;
+        cursor: pointer;
+    }
+    input{
+        height: 15%;
+    }
+</style>
+<body onload="loadExpenseData()">
+    <div class="addButton">
+        <input type="button" class="add-data" id="addData" value="ADD DATA" onclick="addNewData()"> 
+    </div>
+    <div class="expense-cards"></div>
+    
+</body>
+</html>
