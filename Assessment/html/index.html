@@ -8,18 +8,19 @@
     <script src="../script/script.js"> </script>
     <title>create expense</title>
 </head>
-<body onload="getEmployeeName(),getPaymentType(),getCurrencyType(),paymentMethod(),displayEditpage()">
-        
+<body onload="load()">
+        <form class="expense-form">
         <div class="expense-details">
             <div class="expense-header">
                 <h1> Expense Claim Details</h1>
             </div>
             <label for="employeename"> Employee Name</label>
-            <select class="select-name"  id="selectName"  required>
+            <select class="select-name"  id="selectName" onfocus="nameErrorValidation()" required>
                 <option value=""> ---select employee---</option>
             </select></br>
-            <label for="expensetype"> Expense Type</label>
-            <input type="input" class="select-expensetype" id="expenseType"></br>
+            <span class="name-error" id="nameError"> Enter Employee Name</span>
+            <label for="expensetype"> Expense Name</label>
+            <input type="input" class="select-expensetype" id="expenseType" required></br>
             <div class="paymenttype-method">
                 <label for="paymenttype"> Payment Type</label>
                 <select class="select-paymenttype" id="paymenttypeName"  required>
@@ -34,7 +35,7 @@
             </div>
             <div class="paid-date">
                 <label for="paymentdate"> Payment Date</label>
-                <input type="date" class="payment-date" id="paymentDate" required></br>
+                <input type="date" class="payment-date" id="paymentDate" onfocus="dateRestriction()" required></br>
             </div>
             <div class="payout">
                 <label for="payout">Payout with salary</label>
@@ -62,5 +63,6 @@
             </div>
         </div>
     </div>
+</form>
 </body>
 </html>

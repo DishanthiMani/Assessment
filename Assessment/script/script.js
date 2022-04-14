@@ -1,7 +1,17 @@
-document.cookie = ("Bearer=eyJraWQiOiJhZm5VVTd6STJzdk1ISEcydkl3eE44enlxU0NXck1NNSttUDUxYTZcL0Uydz0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjNzRjYjg0OS0xNDQ5LTQ0YWUtYmU3YS0wNGU0OTRhNDczYmIiLCJhdWQiOiI3dDgwNzYzN3Q5bmdwYmI1ZHZrOWIwbXV0NSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJldmVudF9pZCI6ImM4ZDcxNjljLTVkYzktNGEyYS1iNjhhLWFlYmEyOWYxYzIwNCIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNjQ5Njc3MjEyLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuZXUtbm9ydGgtMS5hbWF6b25hd3MuY29tXC9ldS1ub3J0aC0xXzZzMGFMblZFRSIsImNvZ25pdG86dXNlcm5hbWUiOiJjNzRjYjg0OS0xNDQ5LTQ0YWUtYmU3YS0wNGU0OTRhNDczYmIiLCJleHAiOjE2NDk2ODA4MTIsImlhdCI6MTY0OTY3NzIxMiwiZW1haWwiOiJnb3V0aGFtQHppcml1cy5pbiJ9.MPVs1n2kWidMTlCpXtLzY3NzcnpWZcI3jrEC7WptS6LjRvcfmOC_vr-woTA7LhfBwc96rvuv9pkArX4IVsBCn0IXYL2ynWUgpTYRMKxGM7bLa0mbiQiWScq6-gTNtfrzR835z32o_EwpZL2D2GkAqjY1Vuaizc7D5ZMF9_hyhWOipwXN7BRGSrepD-pScOBl2tkbsPeSig-K4In6b-C9BbQks6GHVoDvCgV5rjBLSoz3xlRXkODz5ZeP-av4vt6H8JJUu3vVteXi9-QxroMjVOHQ6n3KBPznHz_fsZx0uBXn-15ymHeobBD7x37AI7cIyC-yQ7u4GY-_eYHDhbe9dQ");
+document.cookie = ("Bearer=eyJraWQiOiJhZm5VVTd6STJzdk1ISEcydkl3eE44enlxU0NXck1NNSttUDUxYTZcL0Uydz0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjNzRjYjg0OS0xNDQ5LTQ0YWUtYmU3YS0wNGU0OTRhNDczYmIiLCJhdWQiOiI3dDgwNzYzN3Q5bmdwYmI1ZHZrOWIwbXV0NSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJldmVudF9pZCI6IjUzZjQyNjRmLWM1ZTQtNDdmMi1iNzBmLWZhMTQ2Mzk4ODVkYyIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNjQ5ODI0MTIyLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuZXUtbm9ydGgtMS5hbWF6b25hd3MuY29tXC9ldS1ub3J0aC0xXzZzMGFMblZFRSIsImNvZ25pdG86dXNlcm5hbWUiOiJjNzRjYjg0OS0xNDQ5LTQ0YWUtYmU3YS0wNGU0OTRhNDczYmIiLCJleHAiOjE2NDk4Mjc3MjIsImlhdCI6MTY0OTgyNDEyMiwiZW1haWwiOiJnb3V0aGFtQHppcml1cy5pbiJ9.Uc1A5IKi2x3ArKCG-R9G9CtRU67HTeZd1lPXcwWoQcnWkPDUSLCdrThTZvlppZu0iGVMTnR-b2n1FgwtDTiZZHz3lHWuyr3jrXWBt4K5zQkrLC86Vl6HxZ0UqZKz4uzkWEAKfGPyzJe6QkkGgqNEJD_Ki_KAWT7qyRTYlIVpg5Yg9u-pAZ-hLA4yOM8dz9_jYnosN4D_la7sf_GUfpDDT_lZA1pE7qmhPp7U5HLML7sC8F6gFT2JSwJdRjMc8OU7t-7yY97LH5tIB93OM2hjpUzX5ldBOJPVLuBF6m1c1VJvfEyrhdi1Mmsz11hYEAFOv3sPn7EnwzmKz-ur3dP3kw");
 var id;
 
-async function getEmployeeName(){
+
+function load() {
+
+    getEmployeeName();
+    getPaymentType();
+    getCurrencyType();
+    paymentMethod();
+    displayEditpage();
+}
+
+ function getEmployeeName(){
 
     var xhttp = new XMLHttpRequest();
 
@@ -25,7 +35,7 @@ async function getEmployeeName(){
     }
     
 }
-async function getPaymentType(){
+ function getPaymentType(){
 
     var xhttp = new XMLHttpRequest();
 
@@ -49,7 +59,7 @@ async function getPaymentType(){
     }
 
 }
-async function getCurrencyType(){
+  function getCurrencyType(){
     var xhttp = new XMLHttpRequest();
     xhttp.open("GET","http://localhost/ec/currencies", true);
     xhttp.setRequestHeader("companyId","14");
@@ -71,7 +81,7 @@ async function getCurrencyType(){
     }
 
 }
-async function paymentMethod(){
+ function paymentMethod(){
     var xhttp = new XMLHttpRequest();
     xhttp.open("GET","http://localhost/ec/paymentMethod",true);
     xhttp.setRequestHeader("companyId","14");
@@ -92,6 +102,22 @@ async function paymentMethod(){
         }
     }
 }
+function dateRestriction(){
+    var currentDate = new Date();
+    console.log(currentDate);
+    document.getElementById("paymentDate").setAttribute("max",currentDate);
+}
+function nameErrorValidation(){
+    var employeeNameValue = document.getElementById("selectName").value;
+    var nameErrorMessage = document.getElementById("nameError").value;
+    if(employeeNameValue == null){
+        nameErrorMessage.classList.remove("name-error");
+        nameErrorMessage.style.color = "red";
+    }else{
+        nameErrorMessage.classList.add("name-error");
+        nameErrorMessage.style.color = "grey";
+    }
+}
 function payoutCheckbox(){
     if(document.getElementById("payoutCheckbox").checked){
         payoutCheckbox.value = "Yes";
@@ -104,7 +130,7 @@ function payoutCheckbox(){
 function postJSONData(){
     var expenseData = {
         attachments : [],
-        amount : document.getElementById("totalAmount").value,
+        amount : parseFloat(document.getElementById("totalAmount").value),
         currency: {
             currencyCode : document.getElementById("currencyType").value,
         },
@@ -119,7 +145,7 @@ function postJSONData(){
         },
         invoiceDate : document.getElementById("paymentDate").value,
         name : document.getElementById("expenseType").value,  
-        notes: "",
+        notes: document.getElementById("expenseNotes").value,
         payoutWithSalary : payoutCheckbox(),
         lineItems : [],
         dimensions :[]   
@@ -258,11 +284,11 @@ function editData(req){
     var url = new URL(`http://localhost/expense/html/index.html?id=${editdata}`);
     window.location.href = url;
 }
-function displayEditpage(){
+ function displayEditpage(){
     var param = new URLSearchParams(window.location.search);
     if(param.get("id") != null ){
         id = param.get("id");
-        document.getElementById("saveData").value = "Edit";
+        document.getElementById("saveData").value = "Update";
         var expenseid = param.get("id");
         var xhttp = new XMLHttpRequest();
         xhttp.open("GET","http://localhost/ec/expenses/"+expenseid,"true");
@@ -300,8 +326,8 @@ function putMethod(){
         currency: {
             currencyCode : document.getElementById("currencyType").value,
         },
-        "employee" : {
-            "userId" : parseInt(document.getElementById("selectName").value),
+        employee : {
+            userId : parseInt(document.getElementById("selectName").value),
         },
         paymentType : {
             id : parseInt(document.getElementById("paymenttypeName").value),

@@ -65,6 +65,9 @@ label{
     display: block;
     font-size: 20px;
 }
+.name-error{
+    display: none;
+}
 .paid-date{
     margin-top: 38px;
 }
