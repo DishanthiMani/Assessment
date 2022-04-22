@@ -1,20 +1,13 @@
 document.cookie = ("Bearer=eyJraWQiOiJhZm5VVTd6STJzdk1ISEcydkl3eE44enlxU0NXck1NNSttUDUxYTZcL0Uydz0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjNzRjYjg0OS0xNDQ5LTQ0YWUtYmU3YS0wNGU0OTRhNDczYmIiLCJhdWQiOiI3dDgwNzYzN3Q5bmdwYmI1ZHZrOWIwbXV0NSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJldmVudF9pZCI6IjUzZjQyNjRmLWM1ZTQtNDdmMi1iNzBmLWZhMTQ2Mzk4ODVkYyIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNjQ5ODI0MTIyLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuZXUtbm9ydGgtMS5hbWF6b25hd3MuY29tXC9ldS1ub3J0aC0xXzZzMGFMblZFRSIsImNvZ25pdG86dXNlcm5hbWUiOiJjNzRjYjg0OS0xNDQ5LTQ0YWUtYmU3YS0wNGU0OTRhNDczYmIiLCJleHAiOjE2NDk4Mjc3MjIsImlhdCI6MTY0OTgyNDEyMiwiZW1haWwiOiJnb3V0aGFtQHppcml1cy5pbiJ9.Uc1A5IKi2x3ArKCG-R9G9CtRU67HTeZd1lPXcwWoQcnWkPDUSLCdrThTZvlppZu0iGVMTnR-b2n1FgwtDTiZZHz3lHWuyr3jrXWBt4K5zQkrLC86Vl6HxZ0UqZKz4uzkWEAKfGPyzJe6QkkGgqNEJD_Ki_KAWT7qyRTYlIVpg5Yg9u-pAZ-hLA4yOM8dz9_jYnosN4D_la7sf_GUfpDDT_lZA1pE7qmhPp7U5HLML7sC8F6gFT2JSwJdRjMc8OU7t-7yY97LH5tIB93OM2hjpUzX5ldBOJPVLuBF6m1c1VJvfEyrhdi1Mmsz11hYEAFOv3sPn7EnwzmKz-ur3dP3kw");
 var id;
 
-
 function load() {
-
-    getEmployeeName();
-    getPaymentType();
-    getCurrencyType();
-    paymentMethod();
-    displayEditpage();
+ getEmployeeName();
 }
 
  function getEmployeeName(){
 
     var xhttp = new XMLHttpRequest();
-
     xhttp.open("GET","http://localhost/ec/employees",true);
     xhttp.setRequestHeader("companyId","14");
     xhttp.setRequestHeader("Accept","application/JSON");
@@ -31,6 +24,7 @@ function load() {
                option.appendChild(text);
                document.getElementById('selectName').appendChild(option);
            });
+           getPaymentType();
         }
     }
     
@@ -38,7 +32,6 @@ function load() {
  function getPaymentType(){
 
     var xhttp = new XMLHttpRequest();
-
     xhttp.open("GET","../paymenttype.json",true);
     xhttp.setRequestHeader("Accept","application/JSON");
     xhttp.setRequestHeader("companyId","14");
@@ -47,6 +40,7 @@ function load() {
     xhttp.send();
     xhttp.onreadystatechange = function(){
         if(this.status == 200 && this.readyState == 4){
+        getCurrencyType();
             var paymentlist = JSON.parse(this.responseText);
             paymentlist.ledgerTemplates.forEach(paymenttype =>{
                 var option = document.createElement("option");
@@ -69,6 +63,7 @@ function load() {
     xhttp.send();
     xhttp.onreadystatechange = function(){
         if(this.status == 200 && this.readyState == 4){
+            paymentMethod();
             var currencies = JSON.parse(this.responseText);
             currencies.currencyList.forEach(currency =>{
             var option = document.createElement("option");
@@ -91,6 +86,7 @@ function load() {
     xhttp.send();
     xhttp.onreadystatechange = function(){
         if(this.status == 200 && this.readyState == 4){
+        displayEditpage();
             var paymentmethod = JSON.parse(this.responseText);
             paymentmethod.dropdownList.forEach(method =>{
                 var option = document.createElement("option");
@@ -103,20 +99,40 @@ function load() {
     }
 }
 function dateRestriction(){
-    var currentDate = new Date();
-    console.log(currentDate);
-    document.getElementById("paymentDate").setAttribute("max",currentDate);
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth() + 1; 
+var yyyy = today.getFullYear();
+if(dd < 11){
+    if (dd < 10) {
+           dd = '0' + dd;
+        }
+        if (mm < 10) {
+               mm = '0' + mm;
+            }   
+    today = yyyy + '-' + mm + '-' + dd;
+    document.getElementById("paymentDate").setAttribute("max", today );
+}else{
+    if (dd < 10) {
+        dd = '0' + dd;
+     }
+     if (mm < 10) {
+            mm = '0' + mm;
+         }
+    today = yyyy + '-' + mm + '-' + 10;
+    console.log(today);
+    document.getElementById("paymentDate").setAttribute("max", today);
+    console.log(document.getElementById("paymentDate"));   
 }
-function nameErrorValidation(){
-    var employeeNameValue = document.getElementById("selectName").value;
-    var nameErrorMessage = document.getElementById("nameError").value;
-    if(employeeNameValue == null){
-        nameErrorMessage.classList.remove("name-error");
-        nameErrorMessage.style.color = "red";
-    }else{
-        nameErrorMessage.classList.add("name-error");
-        nameErrorMessage.style.color = "grey";
-    }
+// if (dd < 10) {
+//    dd = '0' + dd;
+// }
+// if (mm < 10) {
+//    mm = '0' + mm;
+// }    
+// today = yyyy + '-' + mm + '-' + dd;
+// document.getElementById("paymentDate").setAttribute("max", today);
+
 }
 function payoutCheckbox(){
     if(document.getElementById("payoutCheckbox").checked){
@@ -224,9 +240,9 @@ function loadExpenseData(){
                     paymentdate.innerText = "Payment Date";
                     formDiv.append(paymentdate);
                     var dateInput = document.createElement("input");
-                    dateInput.setAttribute("class","dateInput");
+                    dateInput.setAttribute("class","date-input");
                     dateInput.setAttribute("id","dateInput"+i);
-                    dateInput.value = require.expenses[i].invoiceDate.split("T")[0];
+                    dateInput.value = dateFormat(require.expenses[i].invoiceDate.split("T")[0]);
                     dateInput.readOnly = "true";
                     formDiv.append(dateInput);
                     var total = document.createElement("label");
@@ -259,6 +275,7 @@ function loadExpenseData(){
             }
         }
     }
+   
 }
 function deleteData(element){
     var deleteData = element.parentElement.parentElement.getElementsByClassName("id-input")[0].value;
@@ -279,6 +296,21 @@ function deleteData(element){
         }
     }
 }
+function dateFormat(dateOfPayment){
+    var dateObject = new Date(dateOfPayment);
+    var dd = dateObject.getDate();
+    var mm = dateObject.getMonth()+1;
+    var year = dateObject.getFullYear();
+    if (dd < 10) {
+        dd = '0' + dd;
+     }
+     if (mm < 10) {
+            mm = '0' + mm;
+         }
+    return mm + "-" + dd + "-" + year;
+    
+}
+
 function editData(req){
     var editdata = req.parentElement.parentElement.getElementsByClassName("id-input")[0].value;
     var url = new URL(`http://localhost/expense/html/index.html?id=${editdata}`);
@@ -306,7 +338,9 @@ function editData(req){
                     document.getElementById("paymentMethod").value = response.expense.paymentMethod.id;
                     document.getElementById("paymentDate").value = response.expense.invoiceDate.split("T")[0];
                     document.getElementById("payoutCheckbox").value = response.expense.payoutWithSalary;
+                    document.getElementById("expenseNotes").value = response.expense.notes;
                     document.getElementById("totalAmount").value = response.expense.amount;
+                    fixedValue();
                     document.getElementById("currencyType").value = response.expense.currency.currencyCode;  
                 }
             }
@@ -337,7 +371,7 @@ function putMethod(){
         },
         invoiceDate : document.getElementById("paymentDate").value,
         name : document.getElementById("expenseType").value,  
-        notes: "",
+        notes:document.getElementById("expenseNotes").value,
         payoutWithSalary : payoutCheckbox(),
         lineItems : [],
         dimensions :[]   
@@ -353,9 +387,47 @@ function putMethod(){
     var putstringData = JSON.stringify(putData);
     putReq.send(putstringData);   
 }
+function fixedValue(){
+    var paidAmount = document.getElementById("totalAmount").value;
+    console.log(typeof(paidAmount));
+    var amountPaid = parseFloat(paidAmount).toFixed(2);
+    document.getElementById("totalAmount").value = amountPaid;
+    console.log(amountPaid);
+}
+function formValidation(){
+    if(document.forms[0].checkValidity()){
+        postJSONData();
+    }else{
+        alert("Fill the required field");
+    }
+
+}
+function expenseName(){
+    var nameReg = /[A-z 0-9]{4,15}/;
+    var expenseNameInput = document.getElementById("expenseType").value;
+    var expenseSpan = document.getElementById("nameError");
+    if(nameReg.test(expenseNameInput)){
+        expenseSpan.classList.add("name-error");
+    }else{
+        expenseSpan.classList.remove("name-error");
+        expenseSpan.style.color = "red";
+    }
+}
+function notesLimit(){
+    var notesReg = /[A-z 0-9]{4,25}/;
+    var notesInput = document.getElementById("expenseNotes").value;
+    var notesSpan = document.getElementById("notesError")
+    if(notesReg.test(notesInput)){
+            notesSpan.classList.add("notes-error");  
+        }else{
+            notesSpan.classList.remove("notes-error");
+            notesSpan.style.color = "red"; 
+             
+    }
+}
 function editAndSave(element){
     if(element.value == "Save"){
-        postJSONData();
+          formValidation();  
     }else{
         putMethod();
     }

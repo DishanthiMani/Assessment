@@ -23,10 +23,13 @@ body{
     background-color: white;
     color: black;
 }
-
 .currency{
     position: absolute;
     right: 127px;
+}
+.mandatory-field::after{
+    content: "*";
+    color: red;
 }
 .currency-type{
     border-style: dotted;
@@ -68,6 +71,9 @@ label{
 .name-error{
     display: none;
 }
+.notes-error{
+    display: none;
+}
 .paid-date{
     margin-top: 38px;
 }
@@ -99,13 +105,18 @@ label{
     right: 23%;
     top: 56%;
 }
+.required-field{
+    color: red;
+    position: absolute;
+    top: 90px;
+}
 .save-button{
     position: absolute;
     bottom: 26px;
     left: 55px;
 }
 .save-data{
-    cursor: pointer;
+    cursor:pointer;
     width: 100px;
     height: 30px;
     border-style: groove;

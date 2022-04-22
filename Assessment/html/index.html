@@ -8,46 +8,48 @@
     <script src="../script/script.js"> </script>
     <title>create expense</title>
 </head>
-<body onload="load()">
+<body onload="load(),dateRestriction()">
         <form class="expense-form">
         <div class="expense-details">
             <div class="expense-header">
                 <h1> Expense Claim Details</h1>
             </div>
-            <label for="employeename"> Employee Name</label>
-            <select class="select-name"  id="selectName" onfocus="nameErrorValidation()" required>
+            <p class="required-field"> "*" fields are required</p>
+            <label for="employeename" class="mandatory-field"> Employee Name</label>
+            <select class="select-name"  id="selectName" required>
                 <option value=""> ---select employee---</option>
             </select></br>
-            <span class="name-error" id="nameError"> Enter Employee Name</span>
-            <label for="expensetype"> Expense Name</label>
-            <input type="input" class="select-expensetype" id="expenseType" required></br>
+            <label for="expensetype" class="mandatory-field"> Expense Name</label>
+            <input type="input" class="select-expensetype" id="expenseType" oninput="expenseName()"  required></br>
+            <span class="name-error" id="nameError"> Enter minimum 4 character</span>
             <div class="paymenttype-method">
-                <label for="paymenttype"> Payment Type</label>
+                <label for="paymenttype" class="mandatory-field"> Payment Type</label>
                 <select class="select-paymenttype" id="paymenttypeName"  required>
                     <option value=""> ----select payment type---</option>
                 </select>
                 <div class="payment-mode">
-                <label for="paymentmethod"> Payment Method</label>
+                <label for="paymentmethod" class="mandatory-field"> Payment Method</label>
                 <select class="payment-method" id="paymentMethod" required>
                     <option value="" > --select--</option>
                 </select></br>
             </div>
             </div>
             <div class="paid-date">
-                <label for="paymentdate"> Payment Date</label>
-                <input type="date" class="payment-date" id="paymentDate" onfocus="dateRestriction()" required></br>
+                <label for="paymentdate" class="mandatory-field"> Payment Date</label>
+                <input type="date" class="payment-date" id="paymentDate"  required></br>
             </div>
             <div class="payout">
                 <label for="payout">Payout with salary</label>
                 <input type="checkbox" class="payout-checkbox" id="payoutCheckbox">
             </div>
-            <label for="notes">Notes</label>
-            <input type="text" class="expense-notes" id="expenseNotes">
+            <label for="notes" class="notes-field">Notes</label>
+            <input type="text" class="expense-notes" id="expenseNotes" oninput="notesLimit()" ></br>
+            <span class="notes-error" id="notesError"> Enter minimum 4 words and maximum 50 words </span>
             <div class="amount-details">
-            <label for="totalamount"> Total </label>
-            <input type="number"  class="total-amount" id="totalAmount" min="1" placeholder="0.00" required>
+            <label for="totalamount" class="mandatory-field"> Total </label>
+            <input type="number"  class="total-amount" id="totalAmount" min="1" placeholder="0.00" onblur="fixedValue()" required>
             <div class="currency">
-                <label for="currencytype"> Currency</label>
+                <label for="currencytype" class="mandatory-field"> Currency</label>
                 <select class="currency-type" id="currencyType" required>
                     <option value=""> ---Type of currency---</option>
                 </select></br>
