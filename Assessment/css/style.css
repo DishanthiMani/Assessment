@@ -1,31 +1,28 @@
 body{
-    position: relative;
-    background-color: darkcyan;
+    background: linear-gradient(15deg, #0f4667 0%, #2a6973 150%);
+    display: flex;  
+    justify-content: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
 }
 .amount-details{
     display: flex;
     margin-top: 4px;
-}
-.cancel-button{
-    position: absolute;
-    bottom: 26px;
-    left: 200px;
 }
 .cancel-data{
     cursor: pointer;
     width: 100px;
     height: 30px;
     border-style: groove;
-    background-color: grey;
-    color: white;
-}
-.cancel-data:hover{
     background-color: white;
     color: black;
 }
-.currency{
-    position: absolute;
-    right: 127px;
+.cancel-data:hover{
+    background-color: black;
+    color: white;
+}
+.expense-form{
+    margin-left: 15%;
 }
 .mandatory-field::after{
     content: "*";
@@ -34,8 +31,8 @@ body{
 .currency-type{
     border-style: dotted;
     border-color: grey;
-    width: 147px;
-    height: 30px;
+    width: 81%;
+    height: 35px;
     margin-bottom: 5px;
     border-radius: 5px;
 }
@@ -44,25 +41,29 @@ body{
     margin-bottom: 20px;
 }
 .expense-details{
-    position: relative;
-    display: block;
-    margin: 10% 35%;
+    border-style: hidden;
+    border-radius: 30px;
+    position: absolute;
+    top: 10%;
+    left: 34%;
+    width: 30%;
+    margin: auto;
     padding: 25px;
-    border: 2px solid;
     background-color: white;
-    border-color: rgb(0, 0, 0);
-    text-align: left;
-    width: 500px;
-    height: 514px;
-    border-radius: 5px;
+    box-shadow: 10px 10px 5px  lightblue;
 }
 .expense-notes{
     border-style: dotted;
     border-color: grey;
-    width: 300px;
-    height: 30px;
+    width: 80%;
+    height: 40px;
     margin-bottom: 5px;
     border-radius: 5px;
+}
+.form-button{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
 }
 label{
     display: block;
@@ -80,60 +81,49 @@ label{
 .payment-method{
     border-style: dotted;
     border-color: grey;
-    width: 70px;
-    height: 30px;
+    width: 81%;
+    height: 35px;
     margin-bottom: 5px;
     border-radius: 5px;
 }
 .payment-date{
     border-style: dotted;
     border-color: grey;
-    width: 177px;
-    height: 30px;
+    width: 81%;
+    height: 35px;
     margin-bottom: 5px;
     border-radius: 5px;
-}
-.payment-mode{
-    position: absolute;
-    right: 140px;
 }
 .paymenttype-method{
     display: flex;
 }
-.payout{
-    position: absolute;
-    right: 23%;
-    top: 56%;
+.payout-checkbox{
+    width: 25px;
+    height: 25px;
 }
 .required-field{
     color: red;
     position: absolute;
     top: 90px;
 }
-.save-button{
-    position: absolute;
-    bottom: 26px;
-    left: 55px;
-}
+
 .save-data{
     cursor:pointer;
     width: 100px;
     height: 30px;
     border-style: groove;
-    background-color: grey;
-    color: white;
+    background-color: white;
+    color: black;
 }
 .save-data:hover{
-    background-color: white;
-    color: grey;
+    background-color: black;
+    color: white;
 }
 .select-paymenttype{
-    position: absolute;
-    top: 272px;
     border-style: dotted;
     border-color: grey;
-    width: 178px;
-    height: 30px;
+    width: 81%;
+    height: 35px;
     margin-bottom: 5px;
     border-radius: 5px;
 
@@ -141,34 +131,36 @@ label{
 .select-expensetype{
     border-style: dotted;
     border-color: grey;
-    width: 300px;
-    height: 30px;
+    width: 81%;
+    height: 35px;
     margin-bottom: 5px;
     border-radius: 5px;
 }
 .select-name{
     border-style: dotted;
     border-color: grey;
-    width: 300px;
-    height: 30px;
+    width: 80%;
+    height: 35px;
     margin-bottom: 5px;
     border-radius: 5px;
 }
 .total-amount{
-    position: absolute;
-    bottom: 64px;
     border-style: dotted;
     border-color: grey;
-    width: 114px;
+    width: 80%;
     height: 30px;
     margin-bottom: 5px;
     border-radius: 5px;
 }
-@media only screen and ( max-width: 720px){
-    body{
-        background-color: rgb(240, 214, 192);
-    }
+@media only screen and ( max-width: 1025px){
     .expense-details{
-        margin: 10% 12%;
+        width: 90%;
+        left: 0;
+    }
+    
+}
+@media only screen and (max-width: 342px){
+    .required-field{
+        top : 16%;
     }
 }

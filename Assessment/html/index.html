@@ -4,67 +4,58 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     <script src="../script/script.js"> </script>
     <title>create expense</title>
 </head>
 <body onload="load(),dateRestriction()">
-        <form class="expense-form">
+        <form class="expense-form"></form>
         <div class="expense-details">
             <div class="expense-header">
                 <h1> Expense Claim Details</h1>
             </div>
             <p class="required-field"> "*" fields are required</p>
+            <form class="expense-form" id="expenseForm" name="expenseForm">
             <label for="employeename" class="mandatory-field"> Employee Name</label>
             <select class="select-name"  id="selectName" required>
                 <option value=""> ---select employee---</option>
             </select></br>
             <label for="expensetype" class="mandatory-field"> Expense Name</label>
-            <input type="input" class="select-expensetype" id="expenseType" oninput="expenseName()"  required></br>
+            <input type="text" class="select-expensetype" id="expenseType" oninput="expenseName()"  required></br>
             <span class="name-error" id="nameError"> Enter minimum 4 character</span>
-            <div class="paymenttype-method">
-                <label for="paymenttype" class="mandatory-field"> Payment Type</label>
-                <select class="select-paymenttype" id="paymenttypeName"  required>
-                    <option value=""> ----select payment type---</option>
-                </select>
-                <div class="payment-mode">
-                <label for="paymentmethod" class="mandatory-field"> Payment Method</label>
-                <select class="payment-method" id="paymentMethod" required>
-                    <option value="" > --select--</option>
-                </select></br>
-            </div>
-            </div>
-            <div class="paid-date">
-                <label for="paymentdate" class="mandatory-field"> Payment Date</label>
-                <input type="date" class="payment-date" id="paymentDate"  required></br>
-            </div>
-            <div class="payout">
-                <label for="payout">Payout with salary</label>
-                <input type="checkbox" class="payout-checkbox" id="payoutCheckbox">
-            </div>
+            <label for="paymenttype" class="mandatory-field"> Payment Type</label>
+            <select class="select-paymenttype" id="paymenttypeName"  required>
+                <option value=""> ----select payment type---</option>
+            </select></br>
+            <label for="paymentmethod" class="mandatory-field"> Payment Method</label>
+            <select class="payment-method" id="paymentMethod" required>
+                <option value="" > --select--</option>
+            </select></br>
+            <label for="paymentdate" class="mandatory-field"> Payment Date</label>
+            <input type="date" class="payment-date" id="paymentDate"  required></br>
+            <label for="payout">Payout with salary</label>
+            <input type="checkbox" class="payout-checkbox" id="payoutCheckbox">
             <label for="notes" class="notes-field">Notes</label>
-            <input type="text" class="expense-notes" id="expenseNotes" oninput="notesLimit()" ></br>
+            <textarea class="expense-notes" id="expenseNotes" rows="4" cols="50"  oninput="notesLimit()" ></textarea></br>
             <span class="notes-error" id="notesError"> Enter minimum 4 words and maximum 50 words </span>
-            <div class="amount-details">
             <label for="totalamount" class="mandatory-field"> Total </label>
             <input type="number"  class="total-amount" id="totalAmount" min="1" placeholder="0.00" onblur="fixedValue()" required>
-            <div class="currency">
-                <label for="currencytype" class="mandatory-field"> Currency</label>
-                <select class="currency-type" id="currencyType" required>
-                    <option value=""> ---Type of currency---</option>
-                </select></br>
+            <label for="currencytype" class="mandatory-field"> Currency</label>
+            <select class="currency-type" id="currencyType" required>
+                <option value=""> ---Type of currency---</option>
+            </select></br>
+            <div class="form-button">
+                <div class="save-button">
+                    <label for="save data"></label>
+                    <input type="button" id="saveData" class="save-data" value="Save" onclick="editAndSave(this)">
+                </div>
+                <div class="cancel-button">
+                    <label for="canceldata"></label>
+                    <input type="button" class="cancel-data" id="cancelData" value="Cancel" onclick="cancelEdit()">
+                </div>
             </div>
-            </div>
-            <div class="save-button">
-                <label for="save data"></label>
-                <input type="button" id="saveData" class="save-data" value="Save" onclick="editAndSave(this)">
-            </div>
-            <div class="cancel-button">
-                <label for="canceldata"></label>
-                <input type="button" class="cancel-data" id="cancelData" value="Cancel" onclick="cancelEdit()">
-            </div>
+        </form>
         </div>
-    </div>
-</form>
 </body>
 </html>
