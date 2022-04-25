@@ -1,6 +1,8 @@
 document.cookie = ("Bearer=eyJraWQiOiJhZm5VVTd6STJzdk1ISEcydkl3eE44enlxU0NXck1NNSttUDUxYTZcL0Uydz0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjNzRjYjg0OS0xNDQ5LTQ0YWUtYmU3YS0wNGU0OTRhNDczYmIiLCJhdWQiOiI3dDgwNzYzN3Q5bmdwYmI1ZHZrOWIwbXV0NSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJldmVudF9pZCI6IjI2NGViZjA0LWE1YTQtNDc2Ni1iMTkxLWM4NTUyNTk3MGJkZCIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNjUwNjg1MDAwLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuZXUtbm9ydGgtMS5hbWF6b25hd3MuY29tXC9ldS1ub3J0aC0xXzZzMGFMblZFRSIsImNvZ25pdG86dXNlcm5hbWUiOiJjNzRjYjg0OS0xNDQ5LTQ0YWUtYmU3YS0wNGU0OTRhNDczYmIiLCJleHAiOjE2NTA2ODg2MDAsImlhdCI6MTY1MDY4NTAwMCwiZW1haWwiOiJnb3V0aGFtQHppcml1cy5pbiJ9.F8FVjdb7SbLKf_x3Y8qsJH5Vri_wJYRF4lgOS0jVNlFNnc0Pn4PILQrUweSNmUkof21kn3HceNT7k8sXYX2CmaS89k0_2ukSMkjQr7U8FLnV6ClastQUT--PFGZlfzJnX1PeYTxCGr-dOOpsrGecf2zmUDLyDMf9k7BGrD3B1Fh06sKR3fgNlnVS9yKdyyHjJZv44Y40MB-sVq86BLkGkjzPuYq7mlpPONVXZt9OA4iwyTyClHvmEXpH5dYBsIqDeQGzvlL7YPFfnsnpaAt99xsQz0v5SbYEXWV4aDwd-rKkl5qkp0QVMmbvnOw3YG6zUPrseNJEW8DOnEcdVaUa6Q");
 var id;
+var expenseUrl = "http://localhost/ec/";
 var indexPage = "http://localhost/expense/Assessment/html/index.html";
+var expensePage = "http://localhost/expense/Assessment/html/expensepage.html";
 
 function load() {
  getEmployeeName();
@@ -9,7 +11,7 @@ function load() {
 function getEmployeeName() {
 
     var xhttp = new XMLHttpRequest();
-    xhttp.open("GET","http://localhost/ec/employees",true);
+    xhttp.open("GET", expenseUrl+"employees",true);
     xhttp.setRequestHeader("companyId","14");
     xhttp.setRequestHeader("Accept","application/JSON");
     xhttp.setRequestHeader("Authorization","Bearer "+ document.cookie.split("=")[1]);
@@ -59,7 +61,7 @@ function getEmployeeName() {
 function getCurrencyType() {
 
     var xhttp = new XMLHttpRequest();
-    xhttp.open("GET","http://localhost/ec/currencies", true);
+    xhttp.open("GET",expenseUrl+"currencies", true);
     xhttp.setRequestHeader("companyId","14");
     xhttp.setRequestHeader("Accept","application/JSON");
     xhttp.setRequestHeader("Authorization","Bearer"+document.cookie.split("=")[1]);
@@ -84,7 +86,7 @@ function getCurrencyType() {
 function paymentMethod() {
 
     var xhttp = new XMLHttpRequest();
-    xhttp.open("GET","http://localhost/ec/paymentMethod",true);
+    xhttp.open("GET", expenseUrl+"paymentMethod",true);
     xhttp.setRequestHeader("companyId","14");
     xhttp.setRequestHeader("Accept","application/JSON");
     xhttp.setRequestHeader("Authorization","Bearer" +document.cookie.split("=")[1]);
@@ -110,34 +112,14 @@ function dateRestriction() {
     var dd = today.getDate();
     var mm = today.getMonth() + 1; 
     var yyyy = today.getFullYear();
-    if(dd < 11) {
-        if (dd < 10) {
-            dd = '0' + dd;
-        }
-        if (mm < 10) {
-                mm = '0' + mm;
-        }   
-        today = yyyy + '-' + mm + '-' + dd;
-        document.getElementById("paymentDate").setAttribute("max", today );
+    if (dd < 10) {
+       dd = '0' + dd;
     }
-    else {
-        if (dd < 10) {
-            dd = '0' + dd;
-        }
-        if (mm < 10) {
-                mm = '0' + mm;
-        }
-        today = yyyy + '-' + mm + '-' + 10;
-        document.getElementById("paymentDate").setAttribute("max", today);   
-    }
-    // if (dd < 10) {
-    //    dd = '0' + dd;
-    // }
-    // if (mm < 10) {
-    //    mm = '0' + mm;
-    // }    
-    // today = yyyy + '-' + mm + '-' + dd;
-    // document.getElementById("paymentDate").setAttribute("max", today);
+    if (mm < 10) {
+       mm = '0' + mm;
+    }    
+    today = yyyy + '-' + mm + '-' + dd;
+    document.getElementById("paymentDate").setAttribute("max", today);
 }
 
 function payoutCheckbox() {
@@ -178,14 +160,14 @@ function postJSONData() {
 
     var expensePostData = JSON.stringify(expenseData);
     var xhttp = new XMLHttpRequest();
-    xhttp.open("POST","http://localhost/ec/expense",true);
+    xhttp.open("POST",expenseUrl+"expense",true);
     xhttp.setRequestHeader("companyID","14");
     xhttp.setRequestHeader("Authorization","Bearer "+document.cookie.split("=")[1]);
     xhttp.setRequestHeader("content-type","application/JSON");
     xhttp.setRequestHeader("identity","Bearer "+document.cookie.split("=")[1]);
     xhttp.send(expensePostData);
     xhttp.onload = function(){
-        if(this.readyState == 4 && this.status == 200){
+        if(this.readyState == 4 && this.status == 200) {
                 getExpenseData();
         }
     }
@@ -194,24 +176,24 @@ function postJSONData() {
 
 function getExpenseData() {
 
-                   var display = new URL("http://localhost/expense/Assessment/html/expensepage.html");
-                   window.location.href = display;
+    var display = new URL(expensePage);
+    window.location.href = display;
 }
 
 function loadExpenseData() {
 
     var stringData = JSON.stringify({});
     var xhttp = new XMLHttpRequest();
-    xhttp.open("POST","http://localhost/ec/expenses/stage/Inbox?count=10&offset=0",true);
+    xhttp.open("POST",expenseUrl+"expenses/stage/Inbox?count=10&offset=0",true);
     xhttp.setRequestHeader("companyId","14");
     xhttp.setRequestHeader("Accept","application/JSON");
     xhttp.setRequestHeader("content-type","application/JSON");
     xhttp.setRequestHeader("Authorization","Bearer "+document.cookie.split("=")[1]);
     xhttp.setRequestHeader("identity","Bearer "+document.cookie.split("=")[1]);
     xhttp.send(stringData);
-    xhttp.onreadystatechange = function(){
-        if(this.readyState == 4){
-            if(this.status == 200){
+    xhttp.onreadystatechange = function() {
+        if(this.readyState == 4) {
+            if(this.status == 200) {
                 var require = JSON.parse(xhttp.responseText);
                 for(i=0;i<require.expenses.length;i++){
                     var formDiv = document.createElement("div");
@@ -258,6 +240,18 @@ function loadExpenseData() {
                     dateInput.value = dateFormat(require.expenses[i].invoiceDate.split("T")[0]);
                     dateInput.readOnly = "true";
                     formDiv.append(dateInput);
+                    var notes = document.createElement("label");
+                    notes.setAttribute("for","expenseNotes");
+                    notes.innerText = "Expense Notes";
+                    formDiv.append(notes);
+                    var notesInputBox = document.createElement("textarea");
+                    notesInputBox.setAttribute("class","notes-area");
+                    notesInputBox.setAttribute("id","notes-area"+i);
+                    notesInputBox.setAttribute("rows","4");
+                    notesInputBox.setAttribute("cols","50");
+                    notesInputBox.value = require.expenses[i].notes;
+                    notesInputBox.readOnly = "true";
+                    formDiv.append(notesInputBox);
                     var total = document.createElement("label");
                     total.setAttribute("for","totalamount");
                     total.innerText = "Amount";
@@ -265,9 +259,18 @@ function loadExpenseData() {
                     var totalInput = document.createElement("input");
                     totalInput.setAttribute("class","total-amount");
                     totalInput.setAttribute("id","total-amount"+i);
-                    totalInput.value = require.expenses[i].amount;
+                    totalInput.value = parseFloat(require.expenses[i].amount).toFixed(2);
                     totalInput.readOnly = "true";
                     formDiv.append(totalInput);
+                    var currencyLabel = document.createElement("label");
+                    currencyLabel.setAttribute("for","currencyCode");
+                    currencyLabel.innerText = "Currency Code";
+                    formDiv.append(currencyLabel);
+                    var currencyCodeInput = document.createElement("input");
+                    currencyCodeInput.setAttribute("class","currency-code");
+                    currencyCodeInput.setAttribute("id","currency-code"+i);
+                    currencyCodeInput.value = require.expenses[i].currency.currencyName;
+                    formDiv.append(currencyCodeInput);
                     var childDiv = document.createElement("div");
                     childDiv.setAttribute("class","button-div");
                     formDiv.appendChild(childDiv);
@@ -293,8 +296,8 @@ function loadExpenseData() {
 
 function confirmAction() {
 
-    var confirmation = confirm("Are you sure to delete?")
-    if(confirmation){
+    var confirmation = confirm("Are you sure to delete this data?")
+    if(confirmation) {
         deleteData();
     }
 }
@@ -303,15 +306,15 @@ function deleteData() {
 
     var deleteData = document.getElementsByClassName("id-input")[0].value;
     var deleteReq = new XMLHttpRequest();
-    deleteReq.open("DELETE","http://localhost/ec/expense/"+deleteData,true);
+    deleteReq.open("DELETE",expenseUrl+"expense/"+deleteData,true);
     deleteReq.setRequestHeader("Accept","application/JSON");
     deleteReq.setRequestHeader("companyId","14");
     deleteReq.setRequestHeader("Authorization","Bearer "+document.cookie.split("=")[1]);
     deleteReq.setRequestHeader("identity","Bearer "+document.cookie.split("=")[1]);
     deleteReq.send();
-    deleteReq.onreadystatechange = function(){
-        if(this.readyState == 4){
-            if(this.status == 200){
+    deleteReq.onreadystatechange = function() {
+        if(this.readyState == 4) {
+            if(this.status == 200) {
                 var response = JSON.parse(this.responseText);
                 alert(response.message);
                 document.getElementsByClassName("expense-cards")[0].innerHTML = "";
@@ -352,7 +355,7 @@ function displayEditpage() {
         document.getElementById("saveData").value = "Update";
         var expenseid = param.get("id");
         var xhttp = new XMLHttpRequest();
-        xhttp.open("GET","http://localhost/ec/expenses/"+expenseid,"true");
+        xhttp.open("GET",expenseUrl+"expenses/"+expenseid,"true");
         xhttp.setRequestHeader("companyId","14");
         xhttp.setRequestHeader("Authorization","Bearer "+document.cookie.split("=")[1]);
         xhttp.setRequestHeader("identity", "Bearer "+document.cookie.split("=")[1]);
@@ -380,7 +383,7 @@ function displayEditpage() {
 function putMethod() {
 
     var putReq = new XMLHttpRequest();
-    putReq.open("PUT","http://localhost/ec/expense?id="+id,"true");
+    putReq.open("PUT",expenseUrl+"expense?id="+id,"true");
     putReq.setRequestHeader("companyId","14");
     putReq.setRequestHeader("content-type","application/JSON");
     putReq.setRequestHeader("Authorization","Bearer "+document.cookie.split("=")[1]);
@@ -406,7 +409,9 @@ function putMethod() {
         lineItems : [],
         dimensions :[]   
     }
+
     putReq.onreadystatechange = function() {
+
         if(this.readyState == 4) {
             if(this.status == 200) {
                 var response = JSON.parse(this.responseText);
@@ -430,32 +435,6 @@ function fixedValue() {
 }
 
 function formValidation() {
-    // console.log("formValidation");
-    // var nameField = document.getElementById("selectName");
-    // var ExpenseNameField = document.getElementById("expenseType");
-    // var paymentTypeField = document.getElementById("paymenttypeName");
-    // var paymentMethodField = document.getElementById("paymentMethod");
-    // var paymentDateField = document.getElementById("paymentDate");
-    // var paymentAmountField = document.getElementById("totalAmount");
-    // var currencyTypeField = document.getElementById("currencyType");
-
-    // if(!nameField.checkValidity()) {
-    //     var parentForm = document.getElementById("selectName").value;
-    //     var nameSpan = document.createElement("span");
-    //     nameSpan.innerText = "Select Employee Name";
-    //     nameSpan.style.color = "red";
-    //     parentForm.append(nameSpan);
-    // } 
-    // if(!ExpenseNameField.checkValidity()) {
-    //     alert("Enter Expense Type");
-    // }
-    // if(!paymentTypeField.checkValidity()) {
-    //     alert("Select Payment Type");
-    // }
-    // if(!paymentMethodField.checkValidity()) {
-    //     alert("Select Payment Method");
-    // }
-
     
     var formValidity = document.getElementById("expenseForm")
     if(formValidity.checkValidity()) {
@@ -467,7 +446,8 @@ function formValidation() {
 }
 
 function expenseName() {
-    var nameReg = /^[a-zA-Z 0-9\.@#&]{4,15}$/;
+
+    var nameReg = /^[a-zA-Z 0-9@#&-/=.]{4,15}$/;
     var expenseNameInput = document.getElementById("expenseType").value;
     var expenseSpan = document.getElementById("nameError");
     if(nameReg.test(expenseNameInput)) {
@@ -479,7 +459,8 @@ function expenseName() {
 }
 
 function notesLimit() {
-    var notesReg = /^[a-zA-Z 0-9\.@&#]{4,250}$/;
+
+    var notesReg = /^[a-zA-Z 0-9.@&#-=/]{4,250}$/;
     var notesInput = document.getElementById("expenseNotes").value;
     var notesSpan = document.getElementById("notesError")
     if(notesReg.test(notesInput)){
@@ -487,11 +468,11 @@ function notesLimit() {
     }   else {
             notesSpan.classList.remove("notes-error");
             notesSpan.style.color = "red"; 
-             
         }
 }
 
 function editAndSave(element) {
+
     if(element.value == "Save") {
           formValidation(); 
            
@@ -508,7 +489,8 @@ function addNewData() {
 }
 
 function cancelEdit() {
-    var url = new URL("http://localhost/expense/Assessment/html/expensepage.html");
+
+    var url = new URL(expensePage);
     window.location.href = url;
 }
 
