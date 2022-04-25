@@ -88,7 +88,8 @@ label {
     right: 10%;
     top: 5%;
     width: 8%;
-    height: 11%;
+    height: 5%;
+    border-radius: 5px;
     cursor: pointer;
     border-style: groove;
     background-color: white;
