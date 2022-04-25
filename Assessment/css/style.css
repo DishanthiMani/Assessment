@@ -83,6 +83,22 @@ label {
     font-size: 20px;
 }
 
+.list-details{
+    position: absolute;
+    right: 10%;
+    top: 5%;
+    width: 8%;
+    height: 11%;
+    cursor: pointer;
+    border-style: groove;
+    background-color: white;
+    color: black;
+}
+
+.list-details:hover{
+    background-color: black;
+    color: white;
+}
 .name-error {
     display: none;
 }
@@ -185,7 +201,10 @@ label {
         width: 95%;
         left: 0;
     }
-    
+   .list-details{
+       top: 0;
+       width: 12%;
+   } 
 }
 
 @media only screen and (max-width: 342px) {
